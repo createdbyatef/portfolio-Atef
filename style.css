@@ -1210,7 +1210,7 @@ img {
 
 .skill-item {
     display: grid;
-    grid-template-columns: 36px 1fr auto;
+    grid-template-columns: 36px 1fr 80px 45px;
     align-items: center;
     gap: 12px;
 }
@@ -1241,7 +1241,7 @@ img {
 }
 
 .skill-level {
-    width: 60px;
+    width: 100%;
     height: 4px;
     background: var(--bg-tertiary);
     border-radius: var(--radius-full);
@@ -1263,6 +1263,14 @@ img {
 
 .skill-level.animated::after {
     width: calc(var(--level) * 1%);
+}
+
+.skill-percent {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    text-align: right;
 }
 
 /* ---------- Projects Section ---------- */
@@ -2031,6 +2039,16 @@ img {
 }
 
 @media (max-width: 480px) {
+    .skill-item {
+        grid-template-columns: 32px 1fr 40px;
+        gap: 8px;
+    }
+
+    .skill-level {
+        display: none;
+        /* Hide progress bar on very narrow screens to prioritize text */
+    }
+
     .hero-buttons {
         flex-direction: column;
     }
