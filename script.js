@@ -232,12 +232,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========== Typewriter Effect ==========
     const typewriterText = document.getElementById('typewriterText');
     const phrases = [
-        'UI/UX designs ✨',
-        'accessible interfaces ♿',
         'modern web apps 🌐',
-        'mobile experiences 📱',
-        'seamless interactivity 💫',
-        'user journeys 🛣️'
+        'mobile apps 📱',
+        'POS systems 💳',
+        'AI solutions 🤖',
+        'e-commerce platforms 🛒',
+        'beautiful UIs ✨'
     ];
 
     let phraseIndex = 0;

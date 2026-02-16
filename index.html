@@ -57,7 +57,7 @@
         <div class="nav-container">
             <a href="#" class="nav-logo">
                 <span class="logo-bracket">&lt;</span>
-                <span class="logo-text">Wan Atef</span>
+                <span class="logo-text"> Wan Atef</span>
                 <span class="logo-bracket">/&gt;</span>
             </a>
             <ul class="nav-links" id="navLinks">
@@ -70,10 +70,10 @@
             </ul>
             <div class="nav-actions">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-cog"></i>
+                    <i class="fas fa-moon"></i>
                 </button>
-                <a href="https://linkedin.com/in/createdbyatef" target="_blank" class="nav-social">
-                    <i class="fab fa-linkedin-in"></i>
+                <a href="https://github.com/createdbyatef" target="_blank" class="nav-github">
+                    <i class="fab fa-github"></i>
                 </a>
                 <button class="hamburger" id="hamburger" aria-label="Menu">
                     <span></span>
@@ -90,88 +90,98 @@
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="badge-dot"></span>
-                    <span>Open for Hire</span>
+                    <span>Available for hire</span>
                 </div>
                 <h1 class="hero-title">
                     <span class="hero-greeting">Hi, I'm</span>
-                    <span class="hero-name glitch" data-text="Wan Atef">.Wan Atef</span>
+                    <span class="hero-name glitch" data-text="Atef"> Wan Atef</span>
                 </h1>
                 <div class="hero-typewriter">
-                    <span class="typewriter-prefix">I craft </span>
-                    <span class="typewriter-text" id="typewriterText">accessible interfaces ♿</span>
+                    <span class="typewriter-prefix">I build </span>
+                    <span class="typewriter-text" id="typewriterText"></span>
                     <span class="typewriter-cursor">|</span>
                 </div>
                 <p class="hero-description">
-                    <strong>Full-Stack Developer & IT Solutions</strong> architecting intuitive digital experiences with
-                    a focus on human-centered design, usability, and seamless interactivity.
+                    Full-Stack Developer crafting elegant digital solutions with
+                    <span class="highlight">PHP</span>, <span class="highlight">Flutter</span>,
+                    <span class="highlight">JavaScript</span> & <span class="highlight">AI/ML</span>.
+                    Passionate about turning ideas into reality through code.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary btn-gradient">
+                    <a href="#projects" class="btn btn-primary">
                         <span>View My Work</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#contact" class="btn btn-contact">
-                        <span>Contact Me</span>
-                        <i class="fas fa-paper-plane"></i>
+                    <a href="assets/Resume-WanMuhammadAtef.pdf" class="btn btn-secondary" download>
+                        <span>Download CV</span>
+                        <i class="fas fa-download"></i>
                     </a>
                 </div>
 
-                <div class="hero-stats-bottom">
+                <!-- Terminal Component -->
+                <div class="terminal-mini">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">~/atef-portfolio (zsh)</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line"><span class="cmd-prompt">➜</span> <span
+                                class="cmd-text">whoami</span></div>
+                        <div class="terminal-output">atef-dev</div>
+                        <div class="terminal-line"><span class="cmd-prompt">➜</span> <span class="cmd-text">ls -lh
+                                projects/</span></div>
+                        <div class="terminal-output">
+                            total 8<br>
+                            -rw-r--r-- 1 atef staff 4.2K Gula_Ombre_POS.php<br>
+                            -rw-r--r-- 1 atef staff 2.1K Chesekut_Inventory.dart<br>
+                            -rw-r--r-- 1 atef staff 1.8K Bicycle_Rent.mysql
+                        </div>
+                        <div class="terminal-line"><span class="cmd-prompt">➜</span> <span class="cmd-text">git commit
+                                -m "added premium animations"</span></div>
+                        <div class="terminal-output">1 file changed, 52 insertions(+)</div>
+                        <div class="terminal-line"><span class="cmd-prompt">➜</span> <span class="cmd-cursor">_</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-number" data-count="8">0</span>
-                        <span class="stat-label">Projects</span>
+                        <span class="stat-label">Projects Built</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-count="12">0</span>
-                        <span class="stat-label">Tools</span>
+                        <span class="stat-number" data-count="6">0</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="4">0</span>
+                        <span class="stat-label">GitHub Repos</span>
                     </div>
                 </div>
             </div>
             <div class="hero-visual">
-                <!-- Floating Badges -->
-                <div class="floating-badge badge-research">User Research</div>
-                <div class="floating-badge badge-score">
-                    <i class="fas fa-globe"></i>
-                    <span>98%</span>
-                </div>
-                <div class="floating-badge badge-aa">Aa</div>
-                <div class="floating-badge badge-proto">
-                    <img src="assets/fyp3.png" alt="" class="proto-thumb">
-                    <span>Prototyping</span>
-                </div>
-
                 <div class="hero-screen-container">
                     <div class="fyp-screen-stack">
+                        <!-- Mobile screens -->
                         <div class="screen mobile-screen screen-1"><img src="assets/fyp2.png" alt="Mobile UI"></div>
                         <div class="screen mobile-screen screen-3"><img src="assets/fyp5.png" alt="Mobile UI"></div>
-                        <div class="screen mobile-screen main-screen"><img src="assets/fyp1.png" alt="Main UI"></div>
-                        <div class="screen mobile-screen screen-2"><img src="assets/fyp3.png" alt="Mobile UI"></div>
-                        <div class="screen mobile-screen screen-4"><img src="assets/fyp4.png" alt="Mobile UI"></div>
+                        <div class="screen mobile-screen main-screen"><img src="assets/fyp2.png" alt="Mobile UI"></div>
+                        <div class="screen mobile-screen screen-2"><img src="assets/fyp5.png" alt="Mobile UI"></div>
+                        <div class="screen mobile-screen screen-4"><img src="assets/fyp2.png" alt="Mobile UI"></div>
                     </div>
-                </div>
-
-                <!-- Decoration elements -->
-                <div class="hero-circle-dec"></div>
-                <div class="hero-pill-dec">
-                    <span class="dot pink"></span>
-                    <span class="dot purple"></span>
                 </div>
             </div>
         </div>
         <div class="scroll-indicator">
-            <div class="mouse-long">
-                <div class="mouse-scroll-line"></div>
+            <div class="mouse">
+                <div class="mouse-wheel"></div>
             </div>
-            <span>SCROLL DOWN</span>
+            <span>Scroll Down</span>
         </div>
-    </section>
-    </div>
-    <div class="scroll-indicator">
-        <div class="mouse">
-            <div class="mouse-wheel"></div>
-        </div>
-        <span>Scroll Down</span>
-    </div>
     </section>
 
     <!-- About Section -->
