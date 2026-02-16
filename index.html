@@ -64,7 +64,6 @@
                 <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
                 <li><a href="#about" class="nav-link" data-section="about">About</a></li>
                 <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
-                <li><a href="#fyp" class="nav-link" data-section="fyp">Case Study</a></li>
                 <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
                 <li><a href="#experience" class="nav-link" data-section="experience">Journey</a></li>
                 <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
@@ -410,86 +409,6 @@
         </div>
     </section>
 
-    <!-- Featured Case Study (FYP) -->
-    <section class="section fyp-case-study" id="fyp">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">&lt;case-study&gt;</span>
-                <h2 class="section-title">Case <span class="gradient-text">Study</span></h2>
-                <p class="section-subtitle">A deep dive into my core project</p>
-            </div>
-
-            <div class="fyp-premium-card">
-                <!-- Left: Visual Showcase -->
-                <div class="fyp-visual-column">
-                    <div class="fyp-badge-top">
-                        <i class="fas fa-star"></i>
-                        <span>Final Year Project</span>
-                    </div>
-                    <div class="fyp-screen-stack">
-                        <div class="screen bg-screen screen-1"><img src="assets/fyp2.png" alt="FYP Screen"></div>
-                        <div class="screen bg-screen screen-2"><img src="assets/fyp3.png" alt="FYP Screen"></div>
-                        <div class="screen main-screen"><img src="assets/fyp1.png" alt="FYP Main Screen"></div>
-                        <div class="screen bg-screen screen-3"><img src="assets/fyp4.png" alt="FYP Screen"></div>
-                        <div class="screen bg-screen screen-4"><img src="assets/fyp5.png" alt="FYP Screen"></div>
-                    </div>
-                </div>
-
-                <!-- Right: Information Panel -->
-                <div class="fyp-info-column">
-                    <div class="fyp-main-header">
-                        <h3 class="fyp-main-title">🍰 Gula Ombre POS System</h3>
-                        <div class="fyp-tech-pills">
-                            <span class="pill">PHP</span>
-                            <span class="pill">MySQL</span>
-                            <span class="pill">JavaScript</span>
-                        </div>
-                    </div>
-
-                    <p class="fyp-main-desc">
-                        A high-end <strong>Point of Sale</strong> solution designed for <strong>Gula Ombre
-                            Restaurant</strong>
-                        to digitize and streamline the ordering experience, from QR-based customer ordering to real-time
-                        kitchen tracking.
-                    </p>
-
-                    <div class="fyp-details-grid">
-                        <div class="fyp-detail-box">
-                            <div class="detail-header">
-                                <i class="fas fa-bullseye"></i>
-                                <h4>OBJECTIVE</h4>
-                            </div>
-                            <p>To eliminate manual ordering errors and provide a seamless, real-time platform for
-                                customers to browse menus and secure payments.</p>
-                        </div>
-                        <div class="fyp-detail-box">
-                            <div class="detail-header">
-                                <i class="fas fa-star"></i>
-                                <h4>KEY FEATURES</h4>
-                            </div>
-                            <ul class="feature-checklist">
-                                <li><i class="fas fa-check"></i> Real-time Kitchen Display (KDS)</li>
-                                <li><i class="fas fa-check"></i> Interactive QR Menu Ordering</li>
-                                <li><i class="fas fa-check"></i> Secure ToyyibPay Integration</li>
-                                <li><i class="fas fa-check"></i> Google OAuth Authentication</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="fyp-role-tags">
-                        <span class="role-tag">Lead Developer</span>
-                        <span class="role-tag">UI/UX Design</span>
-                        <span class="role-tag">System Architect</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-footer">
-                <span class="section-tag">&lt;/case-study&gt;</span>
-            </div>
-        </div>
-    </section>
-
     <!-- Projects Section -->
     <section class="section projects" id="projects">
         <div class="container">
@@ -509,40 +428,81 @@
             </div>
 
             <div class="projects-grid">
-                <!-- Project 1: Gula Ombre POS -->
-                <div class="project-card featured" data-category="fullstack">
-                    <div class="project-image">
-                        <img src="assets/fyp1.png" alt="Gula Ombre POS" class="project-img-main">
-                        <div class="project-overlay">
-                            <div class="overlay-actions">
-                                <a href="https://github.com/createdbyatef/psm-gulaOmbre" target="_blank"
-                                    class="overlay-btn">
-                                    <i class="fab fa-github"></i>
-                                </a>
+                <!-- Project 1: Gula Ombre POS (Featured Premium) -->
+                <div class="project-card featured-premium" data-category="fullstack">
+                    <div class="fyp-premium-card">
+                        <!-- Left: Visual Showcase -->
+                        <div class="fyp-visual-column">
+                            <div class="fyp-badge-top">
+                                <i class="fas fa-star"></i>
+                                <span>Featured Project</span>
+                            </div>
+                            <div class="fyp-screen-stack">
+                                <!-- Mobile screens -->
+                                <div class="screen mobile-screen screen-1"><img src="assets/fyp2.png" alt="FYP Mobile">
+                                </div>
+                                <div class="screen mobile-screen screen-2"><img src="assets/fyp5.png" alt="FYP Mobile">
+                                </div>
+                                <!-- Main Desktop Screen -->
+                                <div class="screen desktop-screen main-screen"><img src="assets/fyp1.png"
+                                        alt="FYP Desktop"></div>
+                                <!-- Desktop background screens -->
+                                <div class="screen desktop-screen screen-3"><img src="assets/fyp3.png"
+                                        alt="FYP Desktop"></div>
+                                <div class="screen desktop-screen screen-4"><img src="assets/fyp4.png"
+                                        alt="FYP Desktop"></div>
                             </div>
                         </div>
-                        <span class="project-featured-tag">⭐ Featured</span>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">🍰 Gula Ombre POS</h3>
-                        <p class="project-description">
-                            Comprehensive Point of Sale system for restaurants with QR Code ordering,
-                            kitchen display, FPX payment integration, real-time dashboard,
-                            promo codes, and email notifications.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Google OAuth</span>
-                            <span class="tech-tag">ToyyibPay</span>
-                            <span class="tech-tag">QR Code</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/createdbyatef/psm-gulaOmbre" target="_blank"
-                                class="project-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
+
+                        <!-- Right: Information Panel -->
+                        <div class="fyp-info-column">
+                            <div class="fyp-main-header">
+                                <h3 class="fyp-main-title">🍰 Gula Ombre POS System</h3>
+                                <div class="fyp-tech-pills">
+                                    <span class="pill">PHP</span>
+                                    <span class="pill">MySQL</span>
+                                    <span class="pill">JavaScript</span>
+                                </div>
+                            </div>
+
+                            <p class="fyp-main-desc">
+                                A high-end <strong>Point of Sale</strong> solution designed for <strong>Gula Ombre
+                                    Restaurant</strong>
+                                to digitize and streamline the ordering experience.
+                            </p>
+
+                            <div class="fyp-details-grid">
+                                <div class="fyp-detail-box">
+                                    <div class="detail-header">
+                                        <i class="fas fa-bullseye"></i>
+                                        <h4>OBJECTIVE</h4>
+                                    </div>
+                                    <p>To eliminate manual ordering errors and provide a seamless platform for
+                                        customers.</p>
+                                </div>
+                                <div class="fyp-detail-box">
+                                    <div class="detail-header">
+                                        <i class="fas fa-star"></i>
+                                        <h4>KEY FEATURES</h4>
+                                    </div>
+                                    <ul class="feature-checklist">
+                                        <li><i class="fas fa-check"></i> Real-time Kitchen Display</li>
+                                        <li><i class="fas fa-check"></i> Secure ToyyibPay Integration</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="fyp-project-actions">
+                                <a href="https://github.com/createdbyatef/psm-gulaOmbre" target="_blank"
+                                    class="btn btn-primary">
+                                    <i class="fab fa-github"></i>
+                                    <span>Source Code</span>
+                                </a>
+                                <div class="fyp-role-tags">
+                                    <span class="role-tag">Lead Developer</span>
+                                    <span class="role-tag">UI/UX</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
