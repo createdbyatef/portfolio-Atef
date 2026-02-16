@@ -513,6 +513,90 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ========== Screen Drag & Stack Interaction ==========
+    function initScreenDrag() {
+        const screens = document.querySelectorAll('.fyp-screen-stack .screen');
+        if (!screens.length) return;
+
+        let highestZ = 30;
+
+        screens.forEach(screen => {
+            let isDragging = false;
+            let startX, startY;
+            let currentX = 0, currentY = 0;
+            let hasMoved = false;
+
+            // Variables to store the initial fanned-out transform
+            let initialTransform = '';
+
+            const dragStart = (e) => {
+                isDragging = true;
+                hasMoved = true;
+
+                // Increase Z-index to bring to front
+                highestZ++;
+                screen.style.zIndex = highestZ;
+
+                // Capture the current transform (fan position) if not already done
+                if (!initialTransform) {
+                    initialTransform = window.getComputedStyle(screen).transform;
+                    if (initialTransform === 'none') initialTransform = '';
+                }
+
+                // Get mouse/touch position
+                const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+
+                startX = clientX - currentX;
+                startY = clientY - currentY;
+
+                screen.classList.add('dragging');
+                document.body.style.cursor = 'grabbing';
+            };
+
+            const dragMove = (e) => {
+                if (!isDragging) return;
+
+                const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+
+                currentX = clientX - startX;
+                currentY = clientY - startY;
+
+                // Combine user drag (translate) with the initial fan transform
+                // We use translate3d for hardware acceleration
+                screen.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) ${initialTransform}`;
+            };
+
+            const dragEnd = () => {
+                if (!isDragging) return;
+                isDragging = false;
+                screen.classList.remove('dragging');
+                document.body.style.cursor = '';
+            };
+
+            // Event Listeners
+            screen.addEventListener('mousedown', dragStart);
+            window.addEventListener('mousemove', dragMove);
+            window.addEventListener('mouseup', dragEnd);
+
+            // Touch support
+            screen.addEventListener('touchstart', (e) => {
+                // Prevent scrolling when dragging
+                if (e.target.closest('.screen')) {
+                    dragStart(e);
+                }
+            }, { passive: false });
+            window.addEventListener('touchmove', (e) => {
+                if (isDragging) {
+                    e.preventDefault();
+                    dragMove(e);
+                }
+            }, { passive: false });
+            window.addEventListener('touchend', dragEnd);
+        });
+    }
+
     // ========== Initialize Animations ==========
     function initAnimations() {
         animateCounters();
@@ -520,6 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initScrollReveal();
         initTerminalTyping();
         initTilt();
+        initScreenDrag();
     }
 
     // Start animations after load if loading screen already hidden
