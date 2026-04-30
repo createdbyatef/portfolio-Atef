@@ -434,10 +434,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const lines = [
             { type: 'cmd', text: 'whoami' },
             { type: 'out', text: 'wan-atef-dev' },
-            { type: 'cmd', text: 'ls -lh projects/' },
-            { type: 'out', text: 'total 8<br>-rw-r--r--  1 atef  staff   4.2K  Gula_Ombre_POS.php<br>-rw-r--r--  1 atef  staff   2.1K  Chesekut_Inventory.dart<br>-rw-r--r--  1 atef  staff   1.8K  Education_Journey.md' },
-            { type: 'cmd', text: 'git commit -m "added premium animations"' },
-            { type: 'out', text: '1 file changed, 102 insertions(+)' },
+            { type: 'cmd', text: 'ls -lh projects/punb' },
+            { type: 'out', text: 'total 11<br>-rw-r--r--  1 atef  staff   3.8K  Inventory_System.blade.php<br>-rw-r--r--  1 atef  staff   3.5K  PreMAs_PME.blade.php<br>-rw-r--r--  1 atef  staff   2.4K  Analytics_Dashboard.pbix' },
+            { type: 'cmd', text: 'git commit -m "updated portfolio with PUNB internship projects"' },
+            { type: 'out', text: '3 files changed, 256 insertions(+)' },
             { type: 'cmd', text: 'ping -c 3 success.com' },
             { type: 'out', text: '64 bytes from success.com: icmp_seq=1 ttl=64 time=0.1ms' }
         ];
