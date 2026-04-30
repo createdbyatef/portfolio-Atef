@@ -435,7 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { type: 'cmd', text: 'whoami' },
             { type: 'out', text: 'wan-atef-dev' },
             { type: 'cmd', text: 'ls -lh projects/punb' },
-            { type: 'out', text: 'total 11<br>-rw-r--r--  1 atef  staff   3.8K  Inventory_System.blade.php<br>-rw-r--r--  1 atef  staff   3.5K  PreMAs_PME.blade.php<br>-rw-r--r--  1 atef  staff   2.4K  Analytics_Dashboard.pbix' },
+            { type: 'out', text: 'total 11<br>-rw-r--r--  1 atef  staff   3.8K  Inventory_System.blade.php<br>-rw-r--r--  1 atef  staff   3.5K  PreMAs_PME.blade.php<br>-rw-r--r--  1 atef  staff   2.4K  ETS_ITSCOL_Dashboards.pbix' },
             { type: 'cmd', text: 'git commit -m "updated portfolio with PUNB internship projects"' },
             { type: 'out', text: '3 files changed, 256 insertions(+)' },
             { type: 'cmd', text: 'ping -c 3 success.com' },
