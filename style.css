@@ -1527,7 +1527,7 @@ img {
     color: var(--accent-tertiary);
 }
 
-/* Bentuk V (Book Opening) Effect */
+/* Inward V-Shape Effect */
 .dual-screen-wrapper {
     display: flex;
     align-items: center;
@@ -1541,55 +1541,53 @@ img {
 .dual-screen-wrapper .screen-front {
     position: absolute;
     z-index: 10;
-    left: 10%;
-    width: 80% !important;
-    height: auto !important;
-    transform: rotateY(0deg);
-    transform-origin: left center;
-    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
-}
-
-.dual-screen-wrapper .screen-back {
-    position: absolute;
-    z-index: 5;
-    right: 10%;
-    width: 80% !important;
+    right: 50%;
+    width: 90% !important;
     height: auto !important;
     transform: rotateY(0deg);
     transform-origin: right center;
     transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 4px;
+    box-shadow: -10px 10px 30px rgba(0,0,0,0.5);
+}
+
+.dual-screen-wrapper .screen-back {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    width: 90% !important;
+    height: auto !important;
+    transform: rotateY(0deg);
+    transform-origin: left center;
+    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
     opacity: 0.7;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
 }
 
 .project-card:hover .screen-front {
-    transform: rotateY(-45deg) translateX(-20px);
+    transform: rotateY(35deg);
     opacity: 1;
 }
 
 .project-card:hover .screen-back {
-    transform: rotateY(45deg) translateX(20px);
+    transform: rotateY(-35deg);
     opacity: 1;
 }
 
-/* Reveal Center */
+/* Depth shadow in the middle */
 .dual-screen-wrapper::after {
-    content: 'ETS & ITSCOL';
+    content: '';
     position: absolute;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--accent-primary);
-    background: rgba(99, 102, 241, 0.1);
-    padding: 4px 12px;
-    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 40%, rgba(0,0,0,0.5) 50%, transparent 60%);
     opacity: 0;
     transition: 0.5s;
-    z-index: 1;
-    letter-spacing: 2px;
+    pointer-events: none;
+    z-index: 11;
 }
 
 .project-card:hover .dual-screen-wrapper::after {
@@ -1597,7 +1595,7 @@ img {
 }
 
 .project-card:hover .dual-screen-wrapper {
-    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 80%) !important;
+    background: #000 !important;
 }
 
 .profile-img {
