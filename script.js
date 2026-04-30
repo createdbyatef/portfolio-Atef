@@ -597,6 +597,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ========== Project Sliders ==========
+    function initSliders() {
+        const sliders = document.querySelectorAll('.project-slider');
+        
+        sliders.forEach(slider => {
+            const container = slider.querySelector('.slider-container');
+            const images = container.querySelectorAll('.slider-img');
+            const nextBtn = slider.querySelector('.next-btn');
+            const prevBtn = slider.querySelector('.prev-btn');
+            const dots = slider.querySelectorAll('.dot');
+            let currentIndex = 0;
+
+            function updateSlider(index) {
+                // Remove active classes
+                images.forEach(img => img.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+
+                // Update index (looping)
+                if (index >= images.length) currentIndex = 0;
+                else if (index < 0) currentIndex = images.length - 1;
+                else currentIndex = index;
+
+                // Add active classes
+                images[currentIndex].classList.add('active');
+                dots[currentIndex].classList.add('active');
+            }
+
+            // Click events
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                updateSlider(currentIndex + 1);
+            });
+
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                updateSlider(currentIndex - 1);
+            });
+
+            // Dot events
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    updateSlider(index);
+                });
+            });
+
+            // Auto-play (Optional, but good for engagement)
+            /*
+            let autoPlay = setInterval(() => {
+                updateSlider(currentIndex + 1);
+            }, 5000);
+
+            slider.addEventListener('mouseenter', () => clearInterval(autoPlay));
+            slider.addEventListener('mouseleave', () => {
+                autoPlay = setInterval(() => updateSlider(currentIndex + 1), 5000);
+            });
+            */
+        });
+    }
+
     // ========== Initialize Animations ==========
     function initAnimations() {
         animateCounters();
@@ -605,6 +665,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initTerminalTyping();
         initTilt();
         initScreenDrag();
+        initSliders();
     }
 
     // Start animations after load if loading screen already hidden

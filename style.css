@@ -1527,160 +1527,103 @@ img {
     color: var(--accent-tertiary);
 }
 
-/* Holographic Data Reveal (Most Creative) */
-.dual-screen-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #080810 !important;
+/* Project Slider Styles (Modern Carousel) */
+.project-slider {
+    position: relative;
+    width: 100%;
     height: 100%;
-    min-height: 380px;
-    perspective: 1200px;
     overflow: hidden;
+    background: #000;
+}
+
+.slider-container {
+    width: 100%;
+    height: 100%;
     position: relative;
 }
 
-.dual-screen-wrapper .screen-front,
-.dual-screen-wrapper .screen-back {
+.slider-img {
     position: absolute;
-    width: 90% !important;
-    height: auto !important;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    border-radius: 6px;
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-.dual-screen-wrapper .screen-front {
-    z-index: 10;
-    transform: rotateX(10deg) rotateY(-15deg) translateZ(30px);
-    opacity: 1;
-}
-
-.dual-screen-wrapper .screen-back {
-    z-index: 5;
-    transform: rotateX(10deg) rotateY(-15deg) translateZ(-30px) translateY(-20px) translateX(20px);
-    opacity: 0.5;
-    filter: grayscale(0.5) blur(1px);
-}
-
-/* Data Scanner Effect */
-.dual-screen-wrapper::before {
-    content: '';
-    position: absolute;
-    top: -100%;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 50%;
-    background: linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.2), transparent);
-    z-index: 15;
-    pointer-events: none;
-    transition: 0.5s;
-}
-
-.project-card:hover .dual-screen-wrapper::before {
-    animation: dataScan 2s linear infinite;
-}
-
-@keyframes dataScan {
-    0% { top: -100%; }
-    100% { top: 200%; }
-}
-
-.project-card:hover .screen-front {
-    transform: translateX(45%) translateZ(50px) rotateY(-10deg) scale(0.9);
-    opacity: 1;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
-}
-
-.project-card:hover .screen-back {
-    transform: translateX(-45%) translateZ(50px) rotateY(10deg) scale(0.9);
-    opacity: 1;
-    filter: grayscale(0) blur(0);
-    border-color: var(--accent-secondary);
-    box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
-}
-
-/* Background Reveal Icon */
-.dual-screen-wrapper::after {
-    content: '\f080';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    font-size: 4rem;
-    color: rgba(99, 102, 241, 0.05);
-    position: absolute;
-    z-index: 1;
+    height: 100%;
+    object-fit: contain; /* Ensure full dashboard is visible */
+    background: #000;
     opacity: 0;
-    transition: 0.5s;
-    transform: scale(0.5);
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    transform: scale(1.05);
 }
 
-.project-card:hover .dual-screen-wrapper::after {
+.slider-img.active {
     opacity: 1;
+    visibility: visible;
     transform: scale(1);
 }
 
-.project-card:hover .dual-screen-wrapper {
-    background: radial-gradient(circle at center, #101020 0%, #050508 100%) !important;
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    z-index: 10;
+    pointer-events: none;
 }
 
-/* Triple Screen Carousel Effect (PME) */
-.triple-screen-wrapper {
+.slider-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(10, 10, 15, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #0a0a0f !important;
-    height: 100%;
-    min-height: 380px;
-    perspective: 2000px;
-    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    backdrop-filter: blur(5px);
 }
 
-.pme-screen {
+.slider-btn:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    transform: scale(1.1);
+}
+
+.slider-dots {
     position: absolute;
-    width: 85% !important;
-    height: auto !important;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-}
-
-.pme-center {
-    z-index: 15;
-    transform: translateZ(40px);
-}
-
-.pme-left {
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
     z-index: 10;
-    transform: translateX(-35px) translateZ(0) rotateY(25deg) scale(0.9);
-    opacity: 0.6;
 }
 
-.pme-right {
-    z-index: 10;
-    transform: translateX(35px) translateZ(0) rotateY(-25deg) scale(0.9);
-    opacity: 0.6;
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.project-card:hover .pme-center {
-    transform: translateZ(100px) translateY(-10px) scale(1.05);
-    box-shadow: 0 25px 50px rgba(99, 102, 241, 0.3);
+.dot.active {
+    background: var(--accent-primary);
+    width: 20px;
+    border-radius: 4px;
 }
 
-.project-card:hover .pme-left {
-    transform: translateX(-120px) translateZ(20px) rotateY(40deg) scale(0.95);
-    opacity: 1;
-}
-
-.project-card:hover .pme-right {
-    transform: translateX(120px) translateZ(20px) rotateY(-40deg) scale(0.95);
-    opacity: 1;
-}
-
-.project-card:hover .triple-screen-wrapper {
-    background: radial-gradient(circle at center, #151525 0%, #050508 100%) !important;
+.project-card:hover .slider-img.active {
+    transform: scale(1.02);
 }
 
 .profile-img {
