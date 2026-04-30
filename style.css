@@ -1527,56 +1527,74 @@ img {
     color: var(--accent-tertiary);
 }
 
-/* Dual Screen Stack Effect */
+/* Pintu Gerbang (Gate Opening) Effect */
 .dual-screen-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #0a0a0f !important;
+    background: #050508 !important;
     height: 100%;
-    perspective: 1500px;
+    perspective: 2000px;
+    overflow: hidden;
 }
 
 .dual-screen-wrapper .screen-front {
-    position: relative;
-    z-index: 5;
-    transform: translateX(30px) translateZ(50px) rotateY(-10deg);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.7);
-    width: 80% !important;
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    width: 90% !important;
     height: auto !important;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translateX(-50%) translateZ(20px);
+    transform-origin: left center;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .dual-screen-wrapper .screen-back {
     position: absolute;
-    z-index: 1;
-    left: 10%;
-    transform: translateX(-40px) translateZ(-50px) rotateY(15deg);
-    opacity: 0.4;
-    border: 2px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    width: 75% !important;
+    z-index: 5;
+    left: 50%;
+    width: 90% !important;
     height: auto !important;
-    filter: blur(2px);
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translateX(-50%) translateZ(-20px);
+    transform-origin: right center;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    opacity: 0.6;
 }
 
 .project-card:hover .screen-front {
-    transform: translateX(60px) translateZ(100px) rotateY(-20deg) scale(1.05);
-    z-index: 10;
+    transform: translateX(-100%) rotateY(-85deg);
+    opacity: 0.8;
 }
 
 .project-card:hover .screen-back {
-    transform: translateX(-80px) translateZ(0) rotateY(10deg) scale(1.1);
+    transform: translateX(0%) rotateY(85deg);
+    opacity: 0.8;
+}
+
+/* Add a reveal text/logo in the middle when gate opens */
+.dual-screen-wrapper::before {
+    content: 'CORPORATE ANALYTICS';
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-primary);
+    letter-spacing: 4px;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.project-card:hover .dual-screen-wrapper::before {
     opacity: 1;
-    filter: blur(0);
-    z-index: 5;
 }
 
 .project-card:hover .dual-screen-wrapper {
-    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%) !important;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.2) 0%, transparent 80%) !important;
 }
 
 .profile-img {
