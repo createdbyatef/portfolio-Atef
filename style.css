@@ -1624,6 +1624,63 @@ img {
     background: radial-gradient(circle at center, #101020 0%, #050508 100%) !important;
 }
 
+/* Triple Screen Carousel Effect (PME) */
+.triple-screen-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0a0a0f !important;
+    height: 100%;
+    perspective: 2000px;
+    position: relative;
+}
+
+.pme-screen {
+    position: absolute;
+    width: 75% !important;
+    height: auto !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.pme-center {
+    z-index: 15;
+    transform: translateZ(40px);
+}
+
+.pme-left {
+    z-index: 10;
+    transform: translateX(-35px) translateZ(0) rotateY(25deg) scale(0.9);
+    opacity: 0.6;
+}
+
+.pme-right {
+    z-index: 10;
+    transform: translateX(35px) translateZ(0) rotateY(-25deg) scale(0.9);
+    opacity: 0.6;
+}
+
+.project-card:hover .pme-center {
+    transform: translateZ(100px) translateY(-10px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(99, 102, 241, 0.3);
+}
+
+.project-card:hover .pme-left {
+    transform: translateX(-120px) translateZ(20px) rotateY(40deg) scale(0.95);
+    opacity: 1;
+}
+
+.project-card:hover .pme-right {
+    transform: translateX(120px) translateZ(20px) rotateY(-40deg) scale(0.95);
+    opacity: 1;
+}
+
+.project-card:hover .triple-screen-wrapper {
+    background: radial-gradient(circle at center, #151525 0%, #050508 100%) !important;
+}
+
 .profile-img {
     width: 100%;
     height: 100%;
