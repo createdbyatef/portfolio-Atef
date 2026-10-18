@@ -11,22 +11,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
   const easeOut = t => 1 - Math.pow(1 - t, 3);
   const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.matchMedia('(max-width: 1024px), (hover: none), (pointer: coarse)').matches;
 
   /* ───── Custom Cursor ───── */
   const dot = $('#cursorDot');
   const ring = $('#cursorRing');
-  if (dot && ring && !noMotion) {
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
-    (function ringLoop() {
-      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-      requestAnimationFrame(ringLoop);
-    })();
-    $$('a, button, [role="button"], .project-card, .cert-card, .skill-cat, .filter-btn, .fyp-tab, .fyp-mobile, .browser-screen, .lightbox-close').forEach(el => {
-      el.addEventListener('mouseenter', () => ring.classList.add('expand'));
-      el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
-    });
+  if (dot && ring) {
+    if (isTouch) {
+      dot.remove();
+      ring.remove();
+    } else if (!noMotion) {
+      let mx = -100, my = -100, rx = -100, ry = -100;
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX;
+        my = e.clientY;
+        dot.style.left = mx + 'px';
+        dot.style.top = my + 'px';
+      }, { passive: true });
+      (function ringLoop() {
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        ring.style.left = rx + 'px';
+        ring.style.top = ry + 'px';
+        requestAnimationFrame(ringLoop);
+      })();
+      $$('a, button, [role="button"], .project-card, .cert-card, .skill-cat, .filter-btn, .fyp-tab, .fyp-mobile, .browser-screen, .lightbox-close').forEach(el => {
+        el.addEventListener('mouseenter', () => ring.classList.add('expand'));
+        el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
+      });
+    }
   }
 
   /* ───── Loader ───── */
@@ -234,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3D Mouse Spatial Parallax on Stage
-  if (fypStage && !noMotion) {
+  if (fypStage && !noMotion && !isTouch) {
     let targetTiltX = 0, targetTiltY = 0;
     let currentTiltX = 0, currentTiltY = 0;
 
@@ -317,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ───── 3D Card Tilt ───── */
-  if (!noMotion) {
+  if (!noMotion && !isTouch) {
     $$('.project-card:not(.featured-premium), .cert-card, .skill-cat').forEach(card => {
       card.style.transformStyle = 'preserve-3d';
       card.style.perspective = '800px';
