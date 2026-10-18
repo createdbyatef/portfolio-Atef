@@ -2,1337 +2,1072 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Atef - Full-Stack Developer & IT Professional. Building modern web applications, mobile apps, and AI solutions.">
-    <meta name="keywords" content="Atef, Full-Stack Developer, Web Developer, PHP, Flutter, JavaScript, Portfolio">
-    <title>Wan Atef | Full-Stack Developer & IT Professional</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Wan Atef — Full-Stack Developer & IT Graduate. Building enterprise systems, POS platforms, and BI dashboards.">
+  <meta name="keywords" content="Wan Atef, Full-Stack Developer, Laravel, PHP, Flutter, Portfolio, Malaysia">
+  <title>Wan Atef | Full-Stack Developer</title>
 
-    <!-- Social Meta Tags (Open Graph / LinkedIn / WhatsApp) -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://createdbyatef.me/">
-    <meta property="og:title" content="Wan Atef | Full-Stack Developer">
-    <meta property="og:description"
-        content="Portfolio of Wan Atef - Full-Stack Developer specializing in PHP, Flutter, and JavaScript. Check out my latest projects and skills.">
-    <meta property="og:image" content="https://createdbyatef.me/assets/profile.jpg">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235b21f5'/><text x='50' y='68' font-size='62' font-family='Arial' font-weight='900' fill='%23fff' text-anchor='middle'>A</text></svg>">
 
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Wan Atef | Full-Stack Developer">
-    <meta name="twitter:description"
-        content="Portfolio of Wan Atef - Full-Stack Developer specializing in PHP, Flutter, and JavaScript.">
-    <meta name="twitter:image" content="https://createdbyatef.me/assets/profile.jpg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://createdbyatef.me/">
+  <meta property="og:title" content="Wan Atef | Full-Stack Developer">
+  <meta property="og:description"
+    content="Portfolio of Wan Atef — Full-Stack Developer specializing in Laravel, PHP, and Flutter.">
+  <meta property="og:image" content="https://createdbyatef.me/assets/profile.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="cursorFollower"></div>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loader">
-            <div class="loader-text">
-                <span>&lt;</span> Wan Atef<span>/&gt;</span>
-            </div>
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
-            </div>
+  <!-- Loading Screen -->
+  <div class="loader" id="loadingScreen">
+    <div class="loader-num" id="loaderNum">0</div>
+    <div class="loader-label">Loading Portfolio</div>
+    <div class="loader-wordmark">
+      <span class="loader-wordmark-inner" id="loaderWordmark">WAN ATEF</span>
+    </div>
+    <div class="loader-progress">
+      <div class="loader-bar" id="loaderBar"></div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">WA<span class="logo-dot">.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Work</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Journey</a></li>
+        <li><a href="#certifications" class="nav-link" data-section="certifications">Certs</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://github.com/createdbyatef" target="_blank" class="nav-icon" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="home">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="hero-status" data-reveal>
+          <span class="status-dot"></span>
+          Open to work &mdash; Kuantan, Malaysia
         </div>
+
+        <h1>
+          <span class="line"><span class="line-inner">Wan Atef</span></span>
+        </h1>
+
+        <p class="hero-desc" data-reveal data-delay="1">
+          Full-Stack Developer & IT Graduate. I build <strong>enterprise systems</strong>,
+          POS platforms, and BI dashboards — things real teams ship and use every day.
+        </p>
+
+        <div class="hero-cta" data-reveal data-delay="2">
+          <a href="#projects" class="btn btn-solid">View my work <i class="fas fa-arrow-right"></i></a>
+          <a href="assets/Wan_Muhammad_Atef_Resume_Updated .pdf" class="btn btn-line" download>
+            Download CV <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+        <div class="hero-stats" data-reveal data-delay="3">
+          <div class="stat">
+            <span class="stat-num" data-count="11" data-suffix="+">11+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="12" data-suffix="+">12+</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="3">3</span>
+            <span class="stat-label">Certifications</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="12">12</span>
+            <span class="stat-label">Months Intern</span>
+            <span class="stat-sub">Degree + Diploma</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-reveal data-delay="2">
+        <div class="hero-img-wrap">
+          <img src="assets/profile2.png" alt="Wan Muhammad Atef">
+        </div>
+        <div class="info-card info-card-1">
+          <span class="info-card-label">Status</span>
+          <span class="info-card-value">IT Graduate · UTHM ✓</span>
+        </div>
+        <div class="info-card info-card-2">
+          <span class="info-card-label">Stack</span>
+          <span class="info-card-value">Laravel · Flutter</span>
+        </div>
+      </div>
     </div>
 
-    <!-- Particle Background -->
-    <canvas id="particleCanvas"></canvas>
+    <a class="scroll-hint" href="#about" aria-label="Scroll down">
+      <span>Scroll</span>
+      <span class="scroll-hint-line"></span>
+    </a>
+  </header>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <span class="logo-bracket">&lt;</span>
-                <span class="logo-text"> Wan Atef</span>
-                <span class="logo-bracket">/&gt;</span>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
-                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
-                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
-                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
-                <li><a href="#experience" class="nav-link" data-section="experience">Journey</a></li>
-                <li><a href="#certifications" class="nav-link" data-section="certifications">Certificates</a></li>
-                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <a href="https://github.com/createdbyatef" target="_blank" class="nav-github">
-                    <i class="fab fa-github"></i>
-                </a>
-                <button class="hamburger" id="hamburger" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+  <!-- Marquee -->
+  <div class="marquee-section" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Full-Stack Developer <i class="fas fa-circle"></i></span>
+      <span>Laravel <i class="fas fa-circle"></i></span>
+      <span>PHP <i class="fas fa-circle"></i></span>
+      <span>Flutter <i class="fas fa-circle"></i></span>
+      <span>Power BI <i class="fas fa-circle"></i></span>
+      <span>MySQL <i class="fas fa-circle"></i></span>
+      <span>JavaScript <i class="fas fa-circle"></i></span>
+      <span>Open to work <i class="fas fa-circle"></i></span>
+      <span>Full-Stack Developer <i class="fas fa-circle"></i></span>
+      <span>Laravel <i class="fas fa-circle"></i></span>
+      <span>PHP <i class="fas fa-circle"></i></span>
+      <span>Flutter <i class="fas fa-circle"></i></span>
+      <span>Power BI <i class="fas fa-circle"></i></span>
+      <span>MySQL <i class="fas fa-circle"></i></span>
+      <span>JavaScript <i class="fas fa-circle"></i></span>
+      <span>Open to work <i class="fas fa-circle"></i></span>
+    </div>
+  </div>
+
+  <main>
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="sec-head" data-reveal>
+          <div class="sec-eyebrow">01 / About</div>
+          <h2 class="sec-title">Building systems that<br>actually <em>ship</em>.</h2>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-img-block" data-reveal>
+            <img src="assets/profile.jpg" alt="Wan Atef" class="about-img">
+            <div class="about-img-tag">
+              <span>Wan Muhammad Atef</span>
+              <span>Kuantan, Pahang &mdash; MY</span>
             </div>
+          </div>
+
+          <div class="about-body">
+            <p class="lead" data-reveal>
+              I'm <strong>Atef</strong>, a full-stack developer and fresh IT graduate.
+              I just completed a <em>6-month industrial training</em> at
+              <strong>Perbadanan Usahawan Nasional Berhad (PUNB)</strong>, Kuala Lumpur —
+              where I shipped 3 enterprise systems used daily by the corporate team.
+            </p>
+            <p class="about-para" data-reveal data-delay="1">
+              At PUNB I built an <strong>Inventory Management System</strong>,
+              the <strong>Preventive Maintenance Equipment (PME) System</strong>, and
+              <strong>ETS &amp; ITSCOL dashboards</strong> in Power BI.
+              I like turning messy operational problems into clean, boring-in-a-good-way software.
+            </p>
+
+            <div class="facts-grid" data-reveal data-delay="2">
+              <div class="fact-item">
+                <div class="fact-label">Based in</div>
+                <div class="fact-value">Kuantan, Pahang &#127474;&#127486;</div>
+              </div>
+              <div class="fact-item">
+                <div class="fact-label">Status</div>
+                <div class="fact-value">Fresh Graduate · Open to Work</div>
+              </div>
+              <div class="fact-item">
+                <div class="fact-label">Degree</div>
+                <div class="fact-value">Bachelor of Information Technology with Honours, UTHM &mdash; CGPA 3.38</div>
+              </div>
+              <div class="fact-item">
+                <div class="fact-label">Focus</div>
+                <div class="fact-value">Laravel · Flutter · BI Dashboards</div>
+              </div>
+            </div>
+
+            <div class="about-actions" data-reveal data-delay="3">
+              <a href="https://github.com/createdbyatef" target="_blank" class="btn btn-solid">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="#contact" class="btn btn-line">Get in touch <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    <span>Currently Interning @ PUNB HQ, Kuala Lumpur</span>
-                </div>
-                <h1 class="hero-title">
-                    <span class="hero-greeting">Hi, I'm</span>
-                    <span class="hero-name glitch" data-text="Atef"> Wan Atef</span>
-                </h1>
-                <div class="hero-typewriter">
-                    <span class="typewriter-prefix">I build </span>
-                    <span class="typewriter-text" id="typewriterText"></span>
-                    <span class="typewriter-cursor">|</span>
-                </div>
-                <p class="hero-description">
-                    Full-Stack Developer & IT Intern at <span class="highlight">PUNB HQ, Kuala Lumpur</span>, crafting
-                    elegant digital solutions with
-                    <span class="highlight">Laravel</span>, <span class="highlight">PHP</span>,
-                    <span class="highlight">Power BI</span> & <span class="highlight">JavaScript</span>.
-                    Building enterprise systems that drive real business impact.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <span>View My Work</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="assets/Wan_Muhammad_Atef_Resume" class="btn btn-secondary" download>
-                        <span>Download CV</span>
-                        <i class="fas fa-download"></i>
-                    </a>
-                </div>
-
-                <!-- Terminal Component -->
-                <div class="terminal-mini">
-                    <div class="terminal-header">
-                        <div class="terminal-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="terminal-title">~/atef-portfolio (zsh)</span>
-                    </div>
-                    <div class="terminal-body">
-                        <div class="terminal-line"><span class="cmd-prompt">➜</span> <span
-                                class="cmd-text">whoami</span></div>
-                        <div class="terminal-output">atef-dev</div>
-                        <div class="terminal-line"><span class="cmd-prompt">➜</span> <span class="cmd-text">ls -lh
-                                projects/</span></div>
-                        <div class="terminal-output">
-                            total 11<br>
-                            -rw-r--r-- 1 atef staff 4.2K Gula_Ombre_POS.php<br>
-                            -rw-r--r-- 1 atef staff 3.8K Inventory_System.blade.php<br>
-                            -rw-r--r-- 1 atef staff 3.5K PreMAs_PME.blade.php<br>
-                            -rw-r--r-- 1 atef staff 2.4K Analytics_Dashboard.pbix
-                        </div>
-                        <div class="terminal-line"><span class="cmd-prompt">➜</span> <span class="cmd-text">git commit
-                                -m "added premium animations"</span></div>
-                        <div class="terminal-output">1 file changed, 52 insertions(+)</div>
-                        <div class="terminal-line"><span class="cmd-prompt">➜</span> <span class="cmd-cursor">_</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="11">0</span>
-                        <span class="stat-label">Projects Built</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="10">0</span>
-                        <span class="stat-label">Technologies</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="4">0</span>
-                        <span class="stat-label">GitHub Repos</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="design-nexus">
-                    <!-- Main Floating Device -->
-                    <div class="floating-device fyp-main">
-                        <img src="assets/fyp4.png" alt="Featured App" class="device-mock">
-                        <div class="device-glow"></div>
-                    </div>
-
-                    <!-- Secondary Floating Screens -->
-                    <div class="floating-screen screen-1">
-                        <img src="assets/fyp5.png" alt="Discovery">
-                    </div>
-                    <div class="floating-screen screen-2">
-                        <img src="assets/fyp6.png" alt="Profile">
-                    </div>
-
-                    <!-- Design Artifacts -->
-                    <div class="design-node node-1" title="Accessibility First">
-                        <i class="fas fa-universal-access"></i>
-                        <span>98%</span>
-                    </div>
-                    <div class="design-node node-2" title="Color System">
-                        <div class="color-dot c1"></div>
-                        <div class="color-dot c2"></div>
-                    </div>
-                    <div class="design-node node-3" title="Typography">
-                        <span class="font-preview">Aa</span>
-                    </div>
-
-                    <!-- Floating UI Tags -->
-                    <div class="ui-tag tag-1">User Research</div>
-                    <div class="ui-tag tag-2">Wireframing</div>
-                    <div class="ui-tag tag-3">Prototyping</div>
-
-                    <!-- Backdrop Glow Orbs -->
-                    <div class="glow-orb orb-1"></div>
-                    <div class="glow-orb orb-2"></div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="mouse-wheel"></div>
-            </div>
-            <span>Scroll Down</span>
-        </div>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">&lt;about&gt;</span>
-                <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
-                <p class="section-subtitle">Get to know the person behind the code</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-image-wrapper">
-                    <div class="about-image">
-                        <div class="image-placeholder">
-                            <img src="assets/profile.jpg" alt="Wan Atef Profile" class="profile-img">
-                        </div>
-                        <div class="about-image-decoration"></div>
-                    </div>
-                    <div class="about-info-cards">
-                        <div class="info-card">
-                            <i class="fas fa-code"></i>
-                            <div>
-                                <span class="info-value">11+</span>
-                                <span class="info-label">Projects</span>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <i class="fas fa-location-dot"></i>
-                            <div>
-                                <span class="info-value">Kuantan</span>
-                                <span class="info-label">Location</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-content">
-                    <h3 class="about-heading">Full-Stack Developer & IT Intern @ PUNB HQ, Kuala Lumpur 🚀</h3>
-                    <p class="about-text">
-                        Hey there! I'm <strong>Atef</strong>, a passionate Full-Stack Developer currently
-                        interning at <strong>Perbadanan Usahawan Nasional Berhad (PUNB) HQ, Kuala Lumpur</strong>.
-                        I specialize in building enterprise-grade web applications, inventory systems,
-                        and data-driven dashboards that solve real-world business challenges.
-                    </p>
-                    <p class="about-text">
-                        At <strong>PUNB HQ (Kuala Lumpur)</strong>, I've developed an <strong>Inventory Management
-                            System</strong>,
-                        a <strong>Preventive Maintenance Equipment (PME) System</strong>, and
-                        <strong>ETS & ITSCOL dashboards</strong> using Power BI — all contributing to
-                        operational efficiency. I love turning complex ideas into elegant digital solutions.
-                    </p>
-                    <div class="about-details">
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Kuantan, Pahang 🇲🇾</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>IT Graduate</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-briefcase"></i>
-                            <span>IT Intern @ PUNB HQ, Kuala Lumpur</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-heart"></i>
-                            <span>Open Source Contributor</span>
-                        </div>
-                    </div>
-                    <div class="about-actions">
-                        <a href="https://github.com/createdbyatef" target="_blank" class="btn btn-primary">
-                            <i class="fab fa-github"></i>
-                            <span>Visit My GitHub</span>
-                        </a>
+    <!-- ============ SKILLS ============ -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <header class="sec-head" data-reveal>
+          <div class="sec-eyebrow">02 / Skills</div>
+          <h2 class="sec-title">The toolkit.</h2>
+        </header>
 
-                    </div>
+        <div class="skills-layout">
+          <div class="skill-cat" data-reveal>
+            <div class="skill-cat-icon"><i class="fas fa-palette"></i></div>
+            <h3>Frontend</h3>
+            <div class="skill-row">
+              <div class="skill-entry">
+                <span class="skill-name">HTML5</span>
+                <span class="skill-pct">95%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="95"></div>
                 </div>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">CSS3</span>
+                <span class="skill-pct">90%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="90"></div>
+                </div>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-pct">85%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="85"></div>
+                </div>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Bootstrap</span>
+                <span class="skill-pct">88%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="88"></div>
+                </div>
+              </div>
             </div>
-            <div class="section-footer">
-                <span class="section-tag">&lt;/about&gt;</span>
+          </div>
+
+          <div class="skill-cat" data-reveal data-delay="1">
+            <div class="skill-cat-icon"><i class="fas fa-server"></i></div>
+            <h3>Backend</h3>
+            <div class="skill-row">
+              <div class="skill-entry">
+                <span class="skill-name">PHP</span>
+                <span class="skill-pct">92%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="92"></div>
+                </div>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">MySQL</span>
+                <span class="skill-pct">88%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="88"></div>
+                </div>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Supabase</span>
+                <span class="skill-pct">80%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="80"></div>
+                </div>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">REST API</span>
+                <span class="skill-pct">85%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="85"></div>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="skill-cat" data-reveal data-delay="2">
+            <div class="skill-cat-icon"><i class="fas fa-mobile-alt"></i></div>
+            <h3>Mobile & AI</h3>
+            <div class="skill-row">
+              <div class="skill-entry">
+                <span class="skill-name">Flutter</span>
+                <span class="skill-pct">82%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="82"></div>
+                </div>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Python</span>
+                <span class="skill-pct">78%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="78"></div>
+                </div>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">AI / ML</span>
+                <span class="skill-pct">70%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="70"></div>
+                </div>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Git</span>
+                <span class="skill-pct">85%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="85"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-cat" data-reveal data-delay="3">
+            <div class="skill-cat-icon"><i class="fas fa-building"></i></div>
+            <h3>Enterprise</h3>
+            <div class="skill-row">
+              <div class="skill-entry">
+                <span class="skill-name">Laravel</span>
+                <span class="skill-pct">88%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="88"></div>
+                </div>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Power BI</span>
+                <span class="skill-pct">80%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="80"></div>
+                </div>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Chart.js</span>
+                <span class="skill-pct">75%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="75"></div>
+                </div>
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name">Cloudflare</span>
+                <span class="skill-pct">70%</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-level="70"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="section skills" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">&lt;skills&gt;</span>
-                <h2 class="section-title">Tech <span class="gradient-text">Stack</span></h2>
-                <p class="section-subtitle">Technologies I work with daily</p>
-            </div>
-            <div class="skills-grid">
-                <!-- Frontend -->
-                <div class="skill-category" data-category="frontend">
-                    <div class="skill-category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3>Frontend</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-html5"></i></div>
-                            <span>HTML5</span>
-                            <div class="skill-level" data-level="95"></div>
-                            <span class="skill-percent">95%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
-                            <span>CSS3</span>
-                            <div class="skill-level" data-level="90"></div>
-                            <span class="skill-percent">90%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-js-square"></i></div>
-                            <span>JavaScript</span>
-                            <div class="skill-level" data-level="85"></div>
-                            <span class="skill-percent">85%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-bootstrap"></i></div>
-                            <span>Bootstrap</span>
-                            <div class="skill-level" data-level="88"></div>
-                            <span class="skill-percent">88%</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Backend -->
-                <div class="skill-category" data-category="backend">
-                    <div class="skill-category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <h3>Backend</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-php"></i></div>
-                            <span>PHP</span>
-                            <div class="skill-level" data-level="92"></div>
-                            <span class="skill-percent">92%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-database"></i></div>
-                            <span>MySQL</span>
-                            <div class="skill-level" data-level="88"></div>
-                            <span class="skill-percent">88%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-bolt"></i></div>
-                            <span>Supabase</span>
-                            <div class="skill-level" data-level="80"></div>
-                            <span class="skill-percent">80%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
-                            <span>REST API</span>
-                            <div class="skill-level" data-level="85"></div>
-                            <span class="skill-percent">85%</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Mobile & Other -->
-                <div class="skill-category" data-category="mobile">
-                    <div class="skill-category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3>Mobile & AI</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-feather-alt"></i></div>
-                            <span>Flutter</span>
-                            <div class="skill-level" data-level="82"></div>
-                            <span class="skill-percent">82%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-python"></i></div>
-                            <span>Python</span>
-                            <div class="skill-level" data-level="78"></div>
-                            <span class="skill-percent">78%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                            <span>AI/ML</span>
-                            <div class="skill-level" data-level="70"></div>
-                            <span class="skill-percent">70%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-                            <span>Git</span>
-                            <div class="skill-level" data-level="85"></div>
-                            <span class="skill-percent">85%</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Enterprise Tools -->
-                <div class="skill-category" data-category="enterprise">
-                    <div class="skill-category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <h3>Enterprise Tools</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-laravel"></i></div>
-                            <span>Laravel</span>
-                            <div class="skill-level" data-level="88"></div>
-                            <span class="skill-percent">88%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
-                            <span>Power BI</span>
-                            <div class="skill-level" data-level="80"></div>
-                            <span class="skill-percent">80%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-                            <span>Chart.js</span>
-                            <div class="skill-level" data-level="75"></div>
-                            <span class="skill-percent">75%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-cloud"></i></div>
-                            <span>Cloudflare</span>
-                            <div class="skill-level" data-level="70"></div>
-                            <span class="skill-percent">70%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section-footer">
-                <span class="section-tag">&lt;/skills&gt;</span>
-            </div>
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="sec-head" data-reveal>
+          <div class="sec-eyebrow">03 / Work</div>
+          <h2 class="sec-title">Selected projects.</h2>
+        </header>
+
+        <div class="project-filters" data-reveal>
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="enterprise">Enterprise</button>
+          <button class="filter-btn" data-filter="automation">Automation</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+          <button class="filter-btn" data-filter="mobile">Mobile</button>
+          <button class="filter-btn" data-filter="ai">AI/ML</button>
+          <button class="filter-btn" data-filter="frontend">Frontend</button>
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section class="section projects" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">&lt;projects&gt;</span>
-                <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
-                <p class="section-subtitle">A selection of my recent work</p>
-            </div>
-
-            <!-- Project Filter -->
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="enterprise">Enterprise</button>
-                <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-                <button class="filter-btn" data-filter="ai">AI/ML</button>
-                <button class="filter-btn" data-filter="frontend">Frontend</button>
-            </div>
-
-            <div class="projects-grid">
-                <!-- Project 1: Gula Ombre POS (Featured Premium) -->
-                <div class="project-card featured-premium" data-category="fullstack">
-                    <div class="fyp-premium-card">
-                        <!-- Left: Visual Showcase -->
-                        <div class="fyp-visual-column">
-                            <div class="fyp-badge-top">
-                                <i class="fas fa-star"></i>
-                                <span>Featured Project</span>
-                            </div>
-                            <div class="fyp-screen-stack">
-                                <!-- Mobile screens -->
-                                <div class="screen mobile-screen screen-1"><img src="assets/fyp2.png" alt="FYP Mobile">
-                                </div>
-                                <div class="screen mobile-screen screen-2"><img src="assets/fyp5.png" alt="FYP Mobile">
-                                </div>
-                                <!-- Main Desktop Screen -->
-                                <div class="screen desktop-screen main-screen"><img src="assets/fyp1.png"
-                                        alt="FYP Desktop"></div>
-                                <!-- Desktop background screens -->
-                                <div class="screen desktop-screen screen-3"><img src="assets/fyp3.png"
-                                        alt="FYP Desktop"></div>
-                                <div class="screen desktop-screen screen-4"><img src="assets/fyp4.png"
-                                        alt="FYP Desktop"></div>
-                            </div>
-                        </div>
-
-                        <!-- Right: Information Panel -->
-                        <div class="fyp-info-column">
-                            <div class="fyp-main-header">
-                                <h3 class="fyp-main-title">🍰 Gula Ombre POS System</h3>
-                                <div class="fyp-tech-pills">
-                                    <span class="pill">PHP</span>
-                                    <span class="pill">MySQL</span>
-                                    <span class="pill">JavaScript</span>
-                                </div>
-                            </div>
-
-                            <p class="fyp-main-desc">
-                                A high-end <strong>Point of Sale</strong> solution designed for <strong>Gula Ombre
-                                    Restaurant</strong>
-                                to digitize and streamline the ordering experience.
-                            </p>
-
-                            <div class="fyp-details-grid">
-                                <div class="fyp-detail-box">
-                                    <div class="detail-header">
-                                        <i class="fas fa-bullseye"></i>
-                                        <h4>OBJECTIVE</h4>
-                                    </div>
-                                    <p>To eliminate manual ordering errors and provide a seamless platform for
-                                        customers.</p>
-                                </div>
-                                <div class="fyp-detail-box">
-                                    <div class="detail-header">
-                                        <i class="fas fa-star"></i>
-                                        <h4>KEY FEATURES</h4>
-                                    </div>
-                                    <ul class="feature-checklist">
-                                        <li><i class="fas fa-check"></i> Real-time Kitchen Display</li>
-                                        <li><i class="fas fa-check"></i> Secure ToyyibPay Integration</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="fyp-project-actions">
-                                <a href="https://github.com/createdbyatef/psm-gulaOmbre" target="_blank"
-                                    class="btn btn-primary">
-                                    <i class="fab fa-github"></i>
-                                    <span>Source Code</span>
-                                </a>
-                                <div class="fyp-role-tags">
-                                    <span class="role-tag">Lead Developer</span>
-                                    <span class="role-tag">UI/UX</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="projects-grid">
+          <!-- Featured -->
+          <div class="project-card featured-premium" data-category="fullstack" data-reveal>
+            <div class="fyp-card">
+              <div class="fyp-left" id="fypShowcase">
+                <!-- Top Toolbar: Badge + Screen View Switcher -->
+                <div class="fyp-topbar">
+                  <div class="fyp-featured-label"><i class="fas fa-star"></i> Featured project</div>
+                  <div class="fyp-view-tabs" role="tablist" aria-label="POS Screen Views">
+                    <button class="fyp-tab active" data-screen="tables" data-img="assets/fyp1.png"
+                      data-url="gulaombre.pos/admin/tables" data-title="Table & Floor Management" aria-selected="true">
+                      <i class="fas fa-th-large"></i> <span>Tables</span>
+                    </button>
+                    <button class="fyp-tab" data-screen="menu" data-img="assets/fyp2.png"
+                      data-url="gulaombre.pos/admin/menu" data-title="Menu & Item Catalog" aria-selected="false">
+                      <i class="fas fa-book-open"></i> <span>Menu</span>
+                    </button>
+                    <button class="fyp-tab" data-screen="reports" data-img="assets/fyp3.png"
+                      data-url="gulaombre.pos/admin/reports" data-title="Sales & Revenue Analytics"
+                      aria-selected="false">
+                      <i class="fas fa-chart-line"></i> <span>Analytics</span>
+                    </button>
+                  </div>
                 </div>
 
-                <!-- PUNB Internship Projects -->
-                <!-- Project: PUNB Inventory Management System -->
-                <div class="project-card" data-category="enterprise">
-                    <div class="project-image">
-                        <div class="project-img-wrapper project-slider" id="ims-slider">
-                            <div class="slider-container">
-                                <img src="assets/ims-1.png" alt="Inventory Dashboard" class="slider-img active">
-                                <img src="assets/ims-2.png" alt="Inventory List" class="slider-img">
-                                <img src="assets/ims-3.png" alt="Inventory Reports" class="slider-img">
-                            </div>
-                            <div class="slider-nav">
-                                <button class="slider-btn prev-btn" aria-label="Previous image"><i
-                                        class="fas fa-chevron-left"></i></button>
-                                <button class="slider-btn next-btn" aria-label="Next image"><i
-                                        class="fas fa-chevron-right"></i></button>
-                            </div>
-                            <div class="slider-dots">
-                                <span class="dot active"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-badge-row">
-                            <span class="project-company-badge"><i class="fas fa-building"></i> PUNB HQ, Kuala Lumpur
-                                Internship</span>
-                        </div>
-                        <h3 class="project-title">🏢 Inventory Management System</h3>
-                        <p class="project-description">
-                            Enterprise-grade inventory management system developed during internship at PUNB HQ, Kuala
-                            Lumpur.
-                            Full CRUD operations, stock tracking, asset categorization, and reporting modules
-                            for corporate asset lifecycle management.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Laravel</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Bootstrap 5</span>
-                            <span class="tech-tag">jQuery</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link">
-                                <i class="fas fa-lock"></i> Corporate Project
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: PreMAs - Preventive Maintenance System -->
-                <div class="project-card" data-category="enterprise">
-                    <div class="project-image">
-                        <div class="project-img-wrapper project-slider" id="pme-slider">
-                            <div class="slider-container">
-                                <img src="assets/pme-1.png" alt="PreMAs Dashboard" class="slider-img active">
-                                <img src="assets/pme-2.png" alt="PreMAs Management" class="slider-img">
-                                <img src="assets/pme-3.png" alt="PreMAs Details" class="slider-img">
-                            </div>
-                            <div class="slider-nav">
-                                <button class="slider-btn prev-btn" aria-label="Previous image"><i
-                                        class="fas fa-chevron-left"></i></button>
-                                <button class="slider-btn next-btn" aria-label="Next image"><i
-                                        class="fas fa-chevron-right"></i></button>
-                            </div>
-                            <div class="slider-dots">
-                                <span class="dot active"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-badge-row">
-                            <span class="project-company-badge"><i class="fas fa-building"></i> PUNB HQ, Kuala Lumpur
-                                Internship</span>
-                        </div>
-                        <h3 class="project-title">🔧 PreMAs - PME System</h3>
-                        <p class="project-description">
-                            Preventive Maintenance Equipment (PME) system for scheduling and tracking
-                            corporate asset maintenance. Features service audit reports, maintenance calendars,
-                            complaint management, and automated alerts for warranty expiry.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Laravel 11</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Bootstrap 5</span>
-                            <span class="tech-tag">Chart.js</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link">
-                                <i class="fas fa-lock"></i> Corporate Project
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Power BI Dashboard -->
-                <div class="project-card" data-category="enterprise">
-                    <div class="project-image">
-                        <div class="project-img-wrapper project-slider" id="powerbi-slider">
-                            <div class="slider-container">
-                                <img src="assets/powerbi-1.png" alt="ETS Dashboard" class="slider-img active">
-                                <img src="assets/powerbi-2.png" alt="ITSCOL Dashboard" class="slider-img">
-                            </div>
-                            <div class="slider-nav">
-                                <button class="slider-btn prev-btn" aria-label="Previous image"><i
-                                        class="fas fa-chevron-left"></i></button>
-                                <button class="slider-btn next-btn" aria-label="Next image"><i
-                                        class="fas fa-chevron-right"></i></button>
-                            </div>
-                            <div class="slider-dots">
-                                <span class="dot active"></span>
-                                <span class="dot"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-badge-row">
-                            <span class="project-company-badge"><i class="fas fa-building"></i> PUNB HQ, Kuala Lumpur
-                                Internship</span>
-                        </div>
-                        <h3 class="project-title">📊 ETS & ITSCOL Dashboards</h3>
-                        <p class="project-description">
-                            Developed interactive business intelligence dashboards for <strong>ETS (E-Ticketing
-                                System)</strong>
-                            and <strong>ITSCOL</strong> using Power BI. These dashboards visualize key performance
-                            indicators,
-                            ticketing trends, and collection metrics to support data-driven decision making.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">DAX</span>
-                            <span class="tech-tag">Data Modeling</span>
-                            <span class="tech-tag">Analytics</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link">
-                                <i class="fas fa-lock"></i> Corporate Project
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Chesekut Inventory -->
-                <div class="project-card" data-category="mobile">
-                    <div class="project-image">
-                        <div class="project-placeholder" style="--accent: #10b981;">
-                            <i class="fas fa-boxes-stacked"></i>
-                            <div class="project-overlay">
-                                <div class="overlay-actions">
-                                    <a href="https://github.com/createdbyatef/chesekut-inventorySystem" target="_blank"
-                                        class="overlay-btn">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">🧀 Chesekut Inventory System</h3>
-                        <p class="project-description">
-                            Real-time stock management system for a cheesecake business built with Flutter & Supabase.
-                            Features admin, vendor, and customer apps with live stock tracking.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Dart</span>
-                            <span class="tech-tag">Supabase</span>
-                            <span class="tech-tag">Real-time</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/createdbyatef/chesekut-inventorySystem" target="_blank"
-                                class="project-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Bicycle Rental -->
-                <div class="project-card" data-category="fullstack">
-                    <div class="project-image">
-                        <div class="project-placeholder" style="--accent: #06b6d4;">
-                            <i class="fas fa-bicycle"></i>
-                            <div class="project-overlay">
-                                <div class="overlay-actions">
-                                    <a href="https://github.com/createdbyatef/bicycleRental" target="_blank"
-                                        class="overlay-btn">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">🚲 UTHM Bicycle Rental</h3>
-                        <p class="project-description">
-                            University bicycle rental system with booking management, user profiles,
-                            admin dashboard, and payment processing for campus-wide bike sharing.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">HTML/CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/createdbyatef/bicycleRental" target="_blank"
-                                class="project-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: AI Cat & Dog Classifier -->
-                <div class="project-card" data-category="ai">
-                    <div class="project-image">
-                        <div class="project-placeholder" style="--accent: #f97316;">
-                            <i class="fas fa-brain"></i>
-                            <div class="project-overlay">
-                                <div class="overlay-actions">
-                                    <a href="#" class="overlay-btn">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">🤖 AI Image Classifier</h3>
-                        <p class="project-description">
-                            Machine Learning powered image classification model for cats and dogs
-                            using deep neural networks. Built with Python and popular ML frameworks.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">Deep Learning</span>
-                            <span class="tech-tag">Jupyter</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link">
-                                <i class="fas fa-lock"></i> Private Project
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: SEMS -->
-                <div class="project-card" data-category="fullstack">
-                    <div class="project-image">
-                        <div class="project-placeholder" style="--accent: #ec4899;">
-                            <i class="fas fa-calendar-check"></i>
-                            <div class="project-overlay">
-                                <div class="overlay-actions">
-                                    <a href="#" class="overlay-btn">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">🗳️ Student Event Management</h3>
-                        <p class="project-description">
-                            Complete event management system with voting, attendance tracking,
-                            candidate management, reporting, and admin dashboard for student organizations.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">jQuery</span>
-                            <span class="tech-tag">Bootstrap</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link">
-                                <i class="fas fa-lock"></i> Private Project
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: Car Rental -->
-                <div class="project-card" data-category="frontend">
-                    <div class="project-image">
-                        <div class="project-placeholder" style="--accent: #6366f1;">
-                            <i class="fas fa-car"></i>
-                            <div class="project-overlay">
-                                <div class="overlay-actions">
-                                    <a href="#" class="overlay-btn">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">🚗 Car Rental Website</h3>
-                        <p class="project-description">
-                            Responsive, modern car rental website with vehicle listings,
-                            booking interface, and sleek UI/UX design. Fully responsive across all devices.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Responsive</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link">
-                                <i class="fas fa-lock"></i> Private Project
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 7: Sri Gading E-Commerce -->
-                <div class="project-card" data-category="fullstack">
-                    <div class="project-image">
-                        <div class="project-placeholder" style="--accent: #8b5cf6;">
-                            <i class="fas fa-store"></i>
-                            <div class="project-overlay">
-                                <div class="overlay-actions">
-                                    <a href="#" class="overlay-btn">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">🏪 Sri Gading E-Commerce</h3>
-                        <p class="project-description">
-                            Full-featured e-commerce platform built with OpenCart for pottery products.
-                            Includes product catalog, shopping cart, and order management.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">OpenCart</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">E-Commerce</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link">
-                                <i class="fas fa-lock"></i> Private Project
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 8: Website IKA -->
-                <div class="project-card" data-category="frontend">
-                    <div class="project-image">
-                        <div class="project-placeholder" style="--accent: #14b8a6;">
-                            <i class="fas fa-globe"></i>
-                            <div class="project-overlay">
-                                <div class="overlay-actions">
-                                    <a href="https://github.com/createdbyatef/website-ika" target="_blank"
-                                        class="overlay-btn" title="Source Code">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="https://website-ika.vercel.app/" target="_blank" class="overlay-btn"
-                                        title="Live Demo">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">🌐 Digital Birthday Website</h3>
-                        <p class="project-description">
-                            Digital birthday website built with modern web technologies.
-                            Clean design with responsive layout and intuitive navigation.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/createdbyatef/website-ika" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                            <a href="https://website-ika.vercel.app/" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section-footer">
-                <span class="section-tag">&lt;/projects&gt;</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience / Journey Section -->
-    <section class="section experience" id="experience">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">&lt;journey&gt;</span>
-                <h2 class="section-title">My <span class="gradient-text">Journey</span></h2>
-                <p class="section-subtitle">Milestones in my development career</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-marker active-marker"></div>
-                    <div class="timeline-content timeline-highlight">
-                        <div class="timeline-date">Mar 2026 - Aug 2026</div>
-                        <h3 class="timeline-title">🏢 IT Intern @ PUNB HQ, Kuala Lumpur</h3>
-                        <p class="timeline-text">
-                            Industrial training at <strong>Perbadanan Usahawan Nasional Berhad (PUNB) HQ, Kuala
-                                Lumpur</strong>.
-                            Developed enterprise-grade systems including an <strong>Inventory Management
-                                System</strong>,
-                            <strong>Preventive Maintenance Equipment (PME) System</strong>, and
-                            <strong>Power BI dashboards</strong> for corporate data analytics and reporting.
-                        </p>
-                        <div class="timeline-tags">
-                            <span>Laravel</span><span>Power
-                                BI</span><span>PHP</span><span>MySQL</span><span>Bootstrap</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2023 - Present</div>
-                        <h3 class="timeline-title">� Bachelor in Information Technology</h3>
-                        <p class="timeline-text">
-                            Currently pursuing my Degree at <strong>Universiti Tun Hussein Onn Malaysia (UTHM)</strong>.
-                            Focusing on advanced software engineering, system architecture, and modern development
-                            stacks.
-                        </p>
-                        <div class="timeline-info">
-                            <span class="info-label">Current CGPA:</span>
-                            <span class="info-value highlight">3.44</span>
-                        </div>
-                        <div class="timeline-tags">
-                            <span>Degree</span><span>UTHM</span><span>IT</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">Graduate</div>
-                        <h3 class="timeline-title">🎓 Diploma in Information Technology</h3>
-                        <p class="timeline-text">
-                            Completed my Diploma at <strong>Politeknik Sultan Mizan Zainal Abidin (PSMZA)</strong>,
-                            Dungun, Terengganu.
-                            Gained strong fundamental knowledge in programming, networking, and database management.
-                        </p>
-                        <div class="timeline-info">
-                            <span class="info-label">Final CGPA:</span>
-                            <span class="info-value highlight">3.60</span>
-                        </div>
-                        <div class="timeline-tags">
-                            <span>Diploma</span><span>PSMZA</span><span>IT</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2025 - Present</div>
-                        <h3 class="timeline-title">🍰 Gula Ombre POS System</h3>
-                        <p class="timeline-text">
-                            Developed a comprehensive restaurant POS system as my final year project (PSM).
-                            Integrated QR code ordering, real-time kitchen display, FPX payment gateway,
-                            and Google OAuth authentication.
-                        </p>
-                        <div class="timeline-tags">
-                            <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>Final Year Project</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2026</div>
-                        <h3 class="timeline-title">🧀 Chesekut Inventory System</h3>
-                        <p class="timeline-text">
-                            Built a real-time inventory management system with Flutter and Supabase.
-                            Designed multi-app architecture with admin, vendor, and customer interfaces.
-                        </p>
-                        <div class="timeline-tags">
-                            <span>Flutter</span><span>Supabase</span><span>Dart</span><span>Real-time</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2025</div>
-                        <h3 class="timeline-title">🤖 AI Image Classification Research</h3>
-                        <p class="timeline-text">
-                            Conducted research on AI image classification using deep learning.
-                            Published technical paper (AITCS) on cat and dog image classification models.
-                        </p>
-                        <div class="timeline-tags">
-                            <span>Python</span><span>TensorFlow</span><span>Research</span><span>Deep Learning</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2025</div>
-                        <h3 class="timeline-title">🗳️ Student Event Management System</h3>
-                        <p class="timeline-text">
-                            Created a full-featured event management system with voting,
-                            attendance tracking, and reporting capabilities for student organizations.
-                        </p>
-                        <div class="timeline-tags">
-                            <span>PHP</span><span>MySQL</span><span>jQuery</span><span>Bootstrap</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2025</div>
-                        <h3 class="timeline-title">🚲 UTHM Bicycle Rental System</h3>
-                        <p class="timeline-text">
-                            Developed a campus bicycle rental platform with booking management,
-                            user profiles, and admin dashboard for the university community.
-                        </p>
-                        <div class="timeline-tags">
-                            <span>PHP</span><span>MySQL</span><span>HTML/CSS</span><span>JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section-footer">
-                <span class="section-tag">&lt;/journey&gt;</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section class="section certifications" id="certifications">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">&lt;certifications&gt;</span>
-                <h2 class="section-title">Licenses & <span class="gradient-text">Certifications</span></h2>
-                <p class="section-subtitle">Professional credentials and training courses completed</p>
-            </div>
-
-            <div class="certifications-grid">
-                <!-- Certification 1: AWS -->
-                <div class="cert-card">
-                    <div class="cert-image-wrapper">
-                        <img src="assets/WAN_MUHAMMAD_ATEF_BIN_WAN_MUHAMMAD_ADIB_69787962e2a16 (1)_page-0001.jpg"
-                            alt="AWS Certificate Preview" class="cert-img-preview">
-                        <div class="cert-overlay">
-                            <a href="assets/WAN_MUHAMMAD_ATEF_BIN_WAN_MUHAMMAD_ADIB_69787962e2a16 (1).pdf"
-                                target="_blank" class="cert-overlay-btn">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cert-content">
-                        <h3 class="cert-title">AWS CendekiAwan Malaysia Training</h3>
-                        <p class="cert-issuer">AWS & Elitery (via UTHM)</p>
-                        <div class="cert-meta">
-                            <span class="cert-date"><i class="far fa-calendar-alt"></i> Dec 22, 2025</span>
-                        </div>
-                        <div class="cert-footer">
-                            <a href="assets/WAN_MUHAMMAD_ATEF_BIN_WAN_MUHAMMAD_ADIB_69787962e2a16 (1).pdf"
-                                target="_blank" class="cert-verify-link">
-                                <i class="fas fa-file-pdf"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certification 2: Flutter -->
-                <div class="cert-card">
-                    <div class="cert-image-wrapper">
-                        <img src="assets/Mobile Development_ Testing & Debugging Flutter Applications_page-0001.jpg"
-                            alt="Flutter Certificate Preview" class="cert-img-preview">
-                        <div class="cert-overlay">
-                            <a href="assets/Mobile Development_ Testing & Debugging Flutter Applications.pdf"
-                                target="_blank" class="cert-overlay-btn">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cert-content">
-                        <h3 class="cert-title">Mobile Development: Testing & Debugging Flutter Applications</h3>
-                        <p class="cert-issuer">Awantec & National Training Week (NTW)</p>
-                        <div class="cert-meta">
-                            <span class="cert-date"><i class="far fa-calendar-alt"></i> Jun 19, 2025</span>
-                        </div>
-                        <div class="cert-footer">
-                            <a href="assets/Mobile Development_ Testing & Debugging Flutter Applications.pdf"
-                                target="_blank" class="cert-verify-link">
-                                <i class="fas fa-file-pdf"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certification 3: Laravel -->
-                <div class="cert-card">
-                    <div class="cert-image-wrapper">
-                        <img src="assets/E-SIJIL LARAVEL(CI 230104).pdf 50_page-0001.jpg"
-                            alt="Laravel Certificate Preview" class="cert-img-preview">
-                        <div class="cert-overlay">
-                            <a href="assets/E-SIJIL LARAVEL(CI 230104).pdf 50.pdf" target="_blank"
-                                class="cert-overlay-btn">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cert-content">
-                        <h3 class="cert-title">Laravel Bootcamp: Build Your FYP with Laravel</h3>
-                        <p class="cert-issuer">UTHM (Universiti Tun Hussein Onn Malaysia)</p>
-                        <div class="cert-meta">
-                            <span class="cert-date"><i class="far fa-calendar-alt"></i> Oct 19, 2024</span>
-                        </div>
-                        <div class="cert-footer">
-                            <a href="assets/E-SIJIL LARAVEL(CI 230104).pdf 50.pdf" target="_blank"
-                                class="cert-verify-link">
-                                <i class="fas fa-file-pdf"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-footer">
-                <span class="section-tag">&lt;/certifications&gt;</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">&lt;contact&gt;</span>
-                <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
-                <p class="section-subtitle">Let's build something amazing together</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3 class="contact-heading">Let's Talk! 💬</h3>
-                    <p class="contact-text">
-                        I'm always open to discussing new projects, creative ideas, or
-                        opportunities to be part of your vision. Feel free to reach out!
-                    </p>
-                    <div class="contact-methods">
-                        <a href="https://github.com/createdbyatef" target="_blank" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="method-info">
-                                <span class="method-label">GitHub</span>
-                                <span class="method-value">@createdbyatef</span>
-                            </div>
-                        </a>
-                        <a href="mailto:wanatef02@gmail.com" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="method-info">
-                                <span class="method-label">Email</span>
-                                <span class="method-value">wanatef02@gmail.com</span>
-                            </div>
-                        </a>
-                        <a href="https://linkedin.com/in/wan-atef-577461390/" target="_blank" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
-                            <div class="method-info">
-                                <span class="method-label">LinkedIn</span>
-                                <span class="method-value">Wan Atef</span>
-                            </div>
-                        </a>
-                        <a href="https://wa.me/60179238783" target="_blank" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div class="method-info">
-                                <span class="method-label">WhatsApp</span>
-                                <span class="method-value">+60 17-923 8783</span>
-                            </div>
-                        </a>
-                        <a href="https://createdbyatef.me/main.php" target="_blank" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="method-info">
-                                <span class="method-label">Website</span>
-                                <span class="method-value">createdbyatef.me</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-form-wrapper">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Wan Atef" required>
-                            <span class="form-highlight"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="atef@createdbyatef.me" required>
-                            <span class="form-highlight"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Project Collaboration" required>
-                            <span class="form-highlight"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
-                                required></textarea>
-                            <span class="form-highlight"></span>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-                            <span>Send Message</span>
-                            <i class="fas fa-paper-plane"></i>
+                <!-- Interactive 3D Device Stage -->
+                <div class="fyp-stage" id="fypStage">
+                  <!-- Main Desktop Browser Mockup -->
+                  <div class="fyp-browser" id="fypBrowser" title="Click to view full screen">
+                    <div class="browser-header">
+                      <div class="browser-dots">
+                        <span class="b-dot b-dot-red"></span>
+                        <span class="b-dot b-dot-yellow"></span>
+                        <span class="b-dot b-dot-green"></span>
+                      </div>
+                      <div class="browser-address">
+                        <i class="fas fa-lock"></i>
+                        <span id="browserUrl">gulaombre.pos/admin/tables</span>
+                      </div>
+                      <div class="browser-actions">
+                        <button class="browser-zoom-btn" id="browserZoomBtn" title="Expand preview">
+                          <i class="fas fa-expand-alt"></i>
                         </button>
-                    </form>
+                      </div>
+                    </div>
+                    <div class="browser-screen" id="browserScreen">
+                      <img src="assets/fyp1.png" alt="POS Table Layout" class="fyp-desktop-img" id="desktopImg">
+                      <div class="browser-screen-overlay">
+                        <span><i class="fas fa-search-plus"></i> Click for full size</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Floating Mobile Phone Mockup -->
+                  <div class="fyp-mobile" id="fypMobile" title="Click to toggle mobile screen">
+                    <div class="mobile-speaker"></div>
+                    <div class="mobile-screen">
+                      <img src="assets/fyp5.png" alt="Mobile QR Ordering" class="fyp-mobile-img" id="mobileImg">
+                    </div>
+                    <div class="mobile-pill" id="mobilePill">
+                      <i class="fas fa-mobile-alt"></i> <span>QR Order (1/3)</span>
+                    </div>
+                  </div>
+
+                  <!-- Floating Micro Metric Badges -->
+                  <div class="fyp-float-badge badge-fpx">
+                    <div class="f-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="f-text">
+                      <strong>FPX & ToyyibPay</strong>
+                      <span>Payment Gateway</span>
+                    </div>
+                  </div>
+
+                  <div class="fyp-float-badge badge-kds">
+                    <div class="f-icon-pulse"><i class="fas fa-bolt"></i></div>
+                    <div class="f-text">
+                      <strong>Live Kitchen KDS</strong>
+                      <span>Real-time sync</span>
+                    </div>
+                  </div>
                 </div>
+
+                <!-- Bottom Hint -->
+                <div class="fyp-bottom-hint">
+                  <span><i class="fas fa-hand-pointer"></i> Move cursor for 3D tilt &middot; Click tabs or mobile device
+                    to switch views</span>
+                </div>
+              </div>
+              <div class="fyp-right">
+                <span class="fyp-kicker">Final Year Project &middot; Gula Ombre Restaurant</span>
+                <h3 class="fyp-title">Gula Ombre POS System</h3>
+                <div class="fyp-pills">
+                  <span class="pill">PHP</span>
+                  <span class="pill">MySQL</span>
+                  <span class="pill">JavaScript</span>
+                </div>
+                <p class="fyp-desc">
+                  A high-end <strong>point-of-sale</strong> platform that digitises the ordering
+                  experience — from table to kitchen to payment. QR ordering, real-time KDS,
+                  and FPX payment gateway.
+                </p>
+                <div class="fyp-meta">
+                  <div class="fyp-meta-box">
+                    <h4>Objective</h4>
+                    <p>Eliminate manual ordering errors and give customers a seamless digital experience.</p>
+                  </div>
+                  <div class="fyp-meta-box">
+                    <h4>Key features</h4>
+                    <ul>
+                      <li><i class="fas fa-check"></i> Real-time kitchen display</li>
+                      <li><i class="fas fa-check"></i> ToyyibPay integration</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="fyp-actions">
+                  <a href="https://github.com/createdbyatef/psm-gulaOmbre" target="_blank" class="btn btn-solid">
+                    <i class="fab fa-github"></i> Source code
+                  </a>
+                  <div style="display:flex;gap:8px">
+                    <span class="role-tag">Lead dev</span>
+                    <span class="role-tag">UI/UX</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="section-footer">
-                <span class="section-tag">&lt;/contact&gt;</span>
+          </div>
+
+          <!-- PUNB Inventory -->
+          <div class="project-card" data-category="enterprise" data-reveal>
+            <div class="project-thumb">
+              <div class="project-slider" id="ims-slider">
+                <div class="slider-container">
+                  <img src="assets/ims-1.png" alt="Inventory Dashboard" class="slider-img active">
+                  <img src="assets/ims-2.png" alt="Inventory List" class="slider-img">
+                  <img src="assets/ims-3.png" alt="Inventory Reports" class="slider-img">
+                </div>
+                <div class="slider-nav">
+                  <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                  <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slider-dots"><span class="dot active"></span><span class="dot"></span><span
+                    class="dot"></span></div>
+              </div>
             </div>
+            <div class="project-body">
+              <div class="project-company"><i class="fas fa-building"></i> PUNB HQ &mdash; Internship</div>
+              <h3 class="project-title">Inventory Management System</h3>
+              <p class="project-desc">Enterprise inventory with full CRUD, stock tracking, asset categorisation and
+                reporting for corporate asset lifecycle management.</p>
+              <div class="project-tags">
+                <span class="tech-tag">Laravel</span><span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL</span><span class="tech-tag">Bootstrap 5</span>
+                <span class="tech-tag">jQuery</span>
+              </div>
+              <div class="project-links"><span class="project-link"><i class="fas fa-lock"></i> Corporate project</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PreMAs -->
+          <div class="project-card" data-category="enterprise" data-reveal data-delay="1">
+            <div class="project-thumb">
+              <div class="project-slider" id="pme-slider">
+                <div class="slider-container">
+                  <img src="assets/pme-1.png" alt="PreMAs Dashboard" class="slider-img active">
+                  <img src="assets/pme-2.png" alt="PreMAs Management" class="slider-img">
+                  <img src="assets/pme-3.png" alt="PreMAs Details" class="slider-img">
+                </div>
+                <div class="slider-nav">
+                  <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                  <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slider-dots"><span class="dot active"></span><span class="dot"></span><span
+                    class="dot"></span></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-company"><i class="fas fa-building"></i> PUNB HQ &mdash; Internship</div>
+              <h3 class="project-title">PreMAs &mdash; PME System</h3>
+              <p class="project-desc">Preventive maintenance scheduling and tracking for corporate assets — service
+                audits, maintenance calendars, and warranty-expiry alerts.</p>
+              <div class="project-tags">
+                <span class="tech-tag">Laravel 11</span><span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL</span><span class="tech-tag">Bootstrap 5</span>
+                <span class="tech-tag">Chart.js</span>
+              </div>
+              <div class="project-links"><span class="project-link"><i class="fas fa-lock"></i> Corporate project</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Power BI -->
+          <div class="project-card" data-category="enterprise" data-reveal data-delay="2">
+            <div class="project-thumb">
+              <div class="project-slider" id="powerbi-slider">
+                <div class="slider-container">
+                  <img src="assets/powerbi-1.png" alt="ETS Dashboard" class="slider-img active">
+                  <img src="assets/powerbi-2.png" alt="ITSCOL Dashboard" class="slider-img">
+                </div>
+                <div class="slider-nav">
+                  <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                  <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slider-dots"><span class="dot active"></span><span class="dot"></span></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-company"><i class="fas fa-building"></i> PUNB HQ &mdash; Internship</div>
+              <h3 class="project-title">ETS &amp; ITSCOL Dashboards</h3>
+              <p class="project-desc">Interactive BI dashboards for the E-Ticketing System and ITSCOL — KPIs, ticketing
+                trends and collection metrics for data-driven decisions.</p>
+              <div class="project-tags">
+                <span class="tech-tag">Power BI</span><span class="tech-tag">DAX</span>
+                <span class="tech-tag">Data modeling</span><span class="tech-tag">Analytics</span>
+              </div>
+              <div class="project-links"><span class="project-link"><i class="fas fa-lock"></i> Corporate project</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FlowForge Automation -->
+          <div class="project-card" data-category="automation" data-reveal>
+            <div class="project-thumb">
+              <img src="assets/automation-flow.png" alt="FlowForge Automation Engine">
+              <div class="project-overlay">
+                <div class="overlay-actions">
+                  <span class="badge-status-pulse"><span class="pulse-dot"></span> In Development</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-company"><i class="fas fa-robot"></i> Workflow &amp; ETL Automation</div>
+              <h3 class="project-title">FlowForge &mdash; Event-Driven Automation Engine</h3>
+              <p class="project-desc">Automated webhook and ETL pipeline linking POS terminals with external services — automated daily sales reconciliation, scheduled database sync, and instant Telegram order alerts.</p>
+              <div class="project-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">Celery</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">Webhooks</span>
+                <span class="tech-tag">Docker</span>
+              </div>
+              <div class="project-links">
+                <span class="project-link in-progress"><i class="fas fa-hammer"></i> Architecture Stage &middot; Upcoming</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chesekut -->
+          <div class="project-card" data-category="mobile" data-reveal>
+            <div class="project-thumb">
+              <div class="project-placeholder">
+                <i class="fas fa-boxes-stacked"></i>
+                <div class="project-overlay">
+                  <div class="overlay-actions">
+                    <a href="https://github.com/createdbyatef/chesekut-inventorySystem" target="_blank"
+                      class="overlay-btn"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Chesekut Inventory System</h3>
+              <p class="project-desc">Real-time stock management for a cheesecake business — admin, vendor and customer
+                apps with live stock tracking.</p>
+              <div class="project-tags">
+                <span class="tech-tag">Flutter</span><span class="tech-tag">Dart</span>
+                <span class="tech-tag">Supabase</span><span class="tech-tag">Real-time</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/createdbyatef/chesekut-inventorySystem" target="_blank"
+                  class="project-link"><i class="fab fa-github"></i> Source code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bicycle Rental -->
+          <div class="project-card" data-category="fullstack" data-reveal data-delay="1">
+            <div class="project-thumb">
+              <div class="project-placeholder">
+                <i class="fas fa-bicycle"></i>
+                <div class="project-overlay">
+                  <div class="overlay-actions">
+                    <a href="https://github.com/createdbyatef/bicycleRental" target="_blank" class="overlay-btn"><i
+                        class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">UTHM Bicycle Rental</h3>
+              <p class="project-desc">Campus bike-sharing with booking management, user profiles, admin dashboard and
+                payment processing.</p>
+              <div class="project-tags">
+                <span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span>
+                <span class="tech-tag">HTML/CSS</span><span class="tech-tag">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/createdbyatef/bicycleRental" target="_blank" class="project-link"><i
+                    class="fab fa-github"></i> Source code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Classifier -->
+          <div class="project-card" data-category="ai" data-reveal data-delay="2">
+            <div class="project-thumb">
+              <div class="project-placeholder"><i class="fas fa-brain"></i></div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">AI Image Classifier</h3>
+              <p class="project-desc">Deep-learning cat/dog image classifier — research paper published at AITCS
+                conference.</p>
+              <div class="project-tags">
+                <span class="tech-tag">Python</span><span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">Deep learning</span><span class="tech-tag">Jupyter</span>
+              </div>
+              <div class="project-links"><span class="project-link"><i class="fas fa-lock"></i> Private project</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEMS -->
+          <div class="project-card" data-category="fullstack" data-reveal>
+            <div class="project-thumb">
+              <div class="project-placeholder"><i class="fas fa-calendar-check"></i></div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Student Event Management</h3>
+              <p class="project-desc">Event system with voting, attendance tracking, candidate management and an admin
+                dashboard.</p>
+              <div class="project-tags">
+                <span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span>
+                <span class="tech-tag">jQuery</span><span class="tech-tag">Bootstrap</span>
+              </div>
+              <div class="project-links"><span class="project-link"><i class="fas fa-lock"></i> Private project</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- IKA Website -->
+          <div class="project-card" data-category="frontend" data-reveal data-delay="1">
+            <div class="project-thumb">
+              <div class="project-placeholder">
+                <i class="fas fa-globe"></i>
+                <div class="project-overlay">
+                  <div class="overlay-actions">
+                    <a href="https://github.com/createdbyatef/website-ika" target="_blank" class="overlay-btn"><i
+                        class="fab fa-github"></i></a>
+                    <a href="https://website-ika.vercel.app/" target="_blank" class="overlay-btn"><i
+                        class="fas fa-external-link-alt"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Digital Birthday Website</h3>
+              <p class="project-desc">Celebratory microsite with a clean, responsive layout — deployed on Vercel.</p>
+              <div class="project-tags">
+                <span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/createdbyatef/website-ika" target="_blank" class="project-link"><i
+                    class="fab fa-github"></i> Source</a>
+                <a href="https://website-ika.vercel.app/" target="_blank" class="project-link"><i
+                    class="fas fa-external-link-alt"></i> Live</a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">Atef</span>
-                    <span class="logo-bracket">/&gt;</span>
-                </div>
-                <div class="footer-socials">
-                    <a href="https://github.com/createdbyatef" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/wan-atef-577461390/" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://wa.me/60179238783" target="_blank" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="mailto:wanatef02@gmail.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://createdbyatef.me" target="_blank" aria-label="Website">
-                        <i class="fas fa-globe"></i>
-                    </a>
-                </div>
-                <p class="footer-text">
-                    © 2026 Atef. Built with <span class="heart">❤️</span> and lots of ☕
-                </p>
-                <p class="footer-credit">
-                    Designed & Developed by <strong>Atef</strong>
-                </p>
+    <!-- ============ JOURNEY ============ -->
+    <section class="section section-alt" id="experience">
+      <div class="container">
+        <header class="sec-head" data-reveal>
+          <div class="sec-eyebrow">04 / Journey</div>
+          <h2 class="sec-title">Milestones.</h2>
+        </header>
+
+        <div class="timeline">
+          <!-- PUNB Internship COMPLETED -->
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-dot is-active"></div>
+            <div class="timeline-card is-featured">
+              <div class="tl-date">Mar 2026 &mdash; Aug 2026 &middot; Completed</div>
+              <h3 class="tl-title">IT Intern @ PUNB HQ, Kuala Lumpur</h3>
+              <p class="tl-body">
+                Completed 6-month industrial training at
+                <strong>Perbadanan Usahawan Nasional Berhad</strong> —
+                delivered an <strong>Inventory Management System</strong>,
+                a <strong>PME System</strong> and <strong>Power BI dashboards</strong>
+                for corporate analytics. All 3 systems are in active daily use.
+              </p>
+              <div class="tl-tags">
+                <span class="tl-tag">Laravel</span>
+                <span class="tl-tag">Power BI</span>
+                <span class="tl-tag">PHP</span>
+                <span class="tl-tag">MySQL</span>
+              </div>
             </div>
+          </div>
+
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="tl-date">2023 &mdash; 2026</div>
+              <h3 class="tl-title">Bachelor in Information Technology</h3>
+              <p class="tl-body">
+                Degree at <strong>Universiti Tun Hussein Onn Malaysia (UTHM)</strong> —
+                software engineering, system architecture and modern development stacks.
+              </p>
+              <div class="tl-meta">
+                <span class="tl-meta-label">Final CGPA:</span>
+                <span class="tl-meta-val accent">3.44</span>
+              </div>
+              <div class="tl-tags">
+                <span class="tl-tag">Degree</span><span class="tl-tag">UTHM</span><span class="tl-tag">IT</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="tl-date">2025 &mdash; 2026</div>
+              <h3 class="tl-title">Gula Ombre POS System</h3>
+              <p class="tl-body">Restaurant POS final-year project — QR ordering, real-time kitchen display, FPX payment
+                gateway and Google OAuth.</p>
+              <div class="tl-tags">
+                <span class="tl-tag">PHP</span><span class="tl-tag">MySQL</span><span class="tl-tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="tl-date">2026</div>
+              <h3 class="tl-title">Chesekut Inventory System</h3>
+              <p class="tl-body">Real-time inventory with Flutter &amp; Supabase — multi-app architecture for admin,
+                vendor and customer.</p>
+              <div class="tl-tags">
+                <span class="tl-tag">Flutter</span><span class="tl-tag">Supabase</span><span class="tl-tag">Dart</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="tl-date">2025</div>
+              <h3 class="tl-title">AI Image Classification Research</h3>
+              <p class="tl-body">Deep-learning research on cat/dog image classification — technical paper published at
+                AITCS.</p>
+              <div class="tl-tags">
+                <span class="tl-tag">Python</span><span class="tl-tag">TensorFlow</span><span
+                  class="tl-tag">Research</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="tl-date">Graduate</div>
+              <h3 class="tl-title">Diploma in Information Technology</h3>
+              <p class="tl-body">Diploma at <strong>Politeknik Sultan Mizan Zainal Abidin (PSMZA)</strong>, Dungun —
+                programming, networking and database fundamentals.</p>
+              <div class="tl-meta">
+                <span class="tl-meta-label">Final CGPA:</span>
+                <span class="tl-meta-val accent">3.60</span>
+              </div>
+              <div class="tl-tags">
+                <span class="tl-tag">Diploma</span><span class="tl-tag">PSMZA</span><span class="tl-tag">IT</span>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <!-- ============ CERTIFICATIONS ============ -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <header class="sec-head" data-reveal>
+          <div class="sec-eyebrow">05 / Credentials</div>
+          <h2 class="sec-title">Certifications.</h2>
+        </header>
 
-    <script src="script.js"></script>
+        <div class="certs-grid">
+          <div class="cert-card" data-reveal>
+            <div class="cert-thumb">
+              <img src="assets/WAN_MUHAMMAD_ATEF_BIN_WAN_MUHAMMAD_ADIB_69787962e2a16 (1)_page-0001.jpg"
+                alt="AWS Certificate">
+              <div class="cert-thumb-overlay">
+                <a href="assets/WAN_MUHAMMAD_ATEF_BIN_WAN_MUHAMMAD_ADIB_69787962e2a16 (1).pdf" target="_blank"
+                  class="cert-view-btn"><i class="fas fa-eye"></i></a>
+              </div>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-name">AWS CendekiAwan Malaysia Training</h3>
+              <p class="cert-issuer">AWS &amp; Elitery (via UTHM)</p>
+              <div class="cert-date"><i class="far fa-calendar-alt"></i> Dec 22, 2025</div>
+              <div class="cert-footer">
+                <a href="assets/WAN_MUHAMMAD_ATEF_BIN_WAN_MUHAMMAD_ADIB_69787962e2a16 (1).pdf" target="_blank"
+                  class="cert-link"><i class="fas fa-file-pdf"></i> View certificate</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-reveal data-delay="1">
+            <div class="cert-thumb">
+              <img src="assets/Mobile Development_ Testing &amp; Debugging Flutter Applications_page-0001.jpg"
+                alt="Flutter Certificate">
+              <div class="cert-thumb-overlay">
+                <a href="assets/Mobile Development_ Testing &amp; Debugging Flutter Applications.pdf" target="_blank"
+                  class="cert-view-btn"><i class="fas fa-eye"></i></a>
+              </div>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-name">Mobile Development: Testing &amp; Debugging Flutter</h3>
+              <p class="cert-issuer">Awantec &amp; National Training Week</p>
+              <div class="cert-date"><i class="far fa-calendar-alt"></i> Jun 19, 2025</div>
+              <div class="cert-footer">
+                <a href="assets/Mobile Development_ Testing &amp; Debugging Flutter Applications.pdf" target="_blank"
+                  class="cert-link"><i class="fas fa-file-pdf"></i> View certificate</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-reveal data-delay="2">
+            <div class="cert-thumb">
+              <img src="assets/E-SIJIL LARAVEL(CI 230104).pdf 50_page-0001.jpg" alt="Laravel Certificate">
+              <div class="cert-thumb-overlay">
+                <a href="assets/E-SIJIL LARAVEL(CI 230104).pdf 50.pdf" target="_blank" class="cert-view-btn"><i
+                    class="fas fa-eye"></i></a>
+              </div>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-name">Laravel Bootcamp: Build Your FYP with Laravel</h3>
+              <p class="cert-issuer">UTHM</p>
+              <div class="cert-date"><i class="far fa-calendar-alt"></i> Oct 19, 2024</div>
+              <div class="cert-footer">
+                <a href="assets/E-SIJIL LARAVEL(CI 230104).pdf 50.pdf" target="_blank" class="cert-link"><i
+                    class="fas fa-file-pdf"></i> View certificate</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <header class="sec-head" data-reveal>
+          <div class="sec-eyebrow">06 / Contact</div>
+          <h2 class="sec-title">Let's talk.</h2>
+          <p class="sec-sub">Open to full-time roles, freelance work, and interesting problems.</p>
+        </header>
+
+        <div class="contact-grid">
+          <div class="contact-items" data-reveal>
+            <a href="https://github.com/createdbyatef" target="_blank" class="contact-item">
+              <div class="contact-icon"><i class="fab fa-github"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">GitHub</span>
+                <span class="contact-val">@createdbyatef</span>
+              </div>
+            </a>
+            <a href="mailto:wanatef02@gmail.com" class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">Email</span>
+                <span class="contact-val">wanatef02@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/wan-atef-577461390/" target="_blank" class="contact-item">
+              <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-val">Wan Atef</span>
+              </div>
+            </a>
+            <a href="https://wa.me/60179238783" target="_blank" class="contact-item">
+              <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">WhatsApp</span>
+                <span class="contact-val">+60 17-923 8783</span>
+              </div>
+            </a>
+            <a href="https://createdbyatef.me" target="_blank" class="contact-item">
+              <div class="contact-icon"><i class="fas fa-globe"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">Website</span>
+                <span class="contact-val">createdbyatef.me</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="contact-form-box" data-reveal data-delay="1">
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label class="form-label" for="name">Your name</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Wan Atef" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email address</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="you@company.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-input" placeholder="Project collaboration"
+                  required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">Message</label>
+                <textarea id="message" name="message" class="form-textarea" rows="5"
+                  placeholder="Tell me about your project..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-solid btn-full" id="submitBtn">
+                <span>Open in email</span> <i class="fas fa-paper-plane"></i>
+              </button>
+              <p class="form-note">Composes the message in your email client &mdash; nothing is stored.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">WAN ATEF<span class="logo-dot">.</span></div>
+        <div class="footer-socials">
+          <a href="https://github.com/createdbyatef" target="_blank" aria-label="GitHub"><i
+              class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/wan-atef-577461390/" target="_blank" aria-label="LinkedIn"><i
+              class="fab fa-linkedin"></i></a>
+          <a href="https://wa.me/60179238783" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:wanatef02@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://createdbyatef.me" target="_blank" aria-label="Website"><i class="fas fa-globe"></i></a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Wan Atef. Built with care in Malaysia.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Image Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-dialog">
+      <div class="lightbox-topbar">
+        <span class="lightbox-title" id="lightboxTitle">Preview Screen</span>
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="lightbox-body">
+        <img src="" alt="Full view" id="lightboxImg">
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
